@@ -5,6 +5,7 @@ import NewItemBarTemplate from 'template/NewItemBarTemplate';
 import CenterBarTemplate from 'template/CenterBarTemplate';
 import PageTemplate from 'template/PageTemplate';
 import Navigation from 'components/molecules/Navigation';
+import Error from 'components/molecules/Error';
 import Password from 'data/Password';
 
 const Wrapper = styled.div`
@@ -21,6 +22,7 @@ const PageWrapper = styled.div`
 function Main() {
   const reference = createRef();
 
+  const [error, setError] = useState(false);
   const [edit, setEdit] = useState(false);
   const [login, setLogin] = useState(false);
   const [print, setPrint] = useState(false);
@@ -139,6 +141,8 @@ function Main() {
       setLogin(true);
     } else {
       setLogin(false);
+      setError(true);
+      setTimeout(() => setError(false), 3000);
     }
     closeCenterBar();
   };
@@ -184,6 +188,7 @@ function Main() {
         </PageWrapper>
         <NewItemBarTemplate />
         <CenterBarTemplate />
+        <Error error={error} />
       </Wrapper>
     </AppContext.Provider>
   );
