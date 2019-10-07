@@ -4,7 +4,6 @@ import Button from '../atoms/Button';
 import Colors from '../../styled/Colors';
 import addIcon from '../../assets/icons/add.svg';
 import editIcon from '../../assets/icons/writing.svg';
-import withContext from '../../hoc/withContext';
 
 const StyledButton = styled(Button)`
   display: ${({ print }) => (print ? `none` : null)};
@@ -18,11 +17,11 @@ const StyledButton = styled(Button)`
   z-index: 1;
 `;
 
-const Edit = ({ type, value, print, login, openNewItemBar }) => (
+const Edit = ({ type, value, print, login, editButtonOnClick }) => (
   <StyledButton
     disabled={!login}
     print={print}
-    onClick={() => openNewItemBar(type)}
+    onClick={() => editButtonOnClick(type)}
     buttonColor={Colors[value ? `blueDark` : `red`]}
     icon={value ? editIcon : addIcon}
   />
