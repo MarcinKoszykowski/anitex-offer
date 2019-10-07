@@ -45,7 +45,11 @@ function Product({ item, deleteButtonOnClick, number }) {
       <Name>{name}</Name>
       <Price>{Functions.priceFormat(price)}</Price>
       <Image src={image} />
-      <DeleteButton onClick={deleteButtonOnClick} buttonColor={Colors.red} icon={trashIcon} />
+      <DeleteButton
+        onClick={() => deleteButtonOnClick(number)}
+        buttonColor={Colors.red}
+        icon={trashIcon}
+      />
     </Wrapper>
   );
 }

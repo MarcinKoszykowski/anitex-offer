@@ -1,6 +1,22 @@
 import React, { useState, useEffect, createRef } from 'react';
+import styled from 'styled-components';
 import AppContext from 'context';
+import NewItemBarTemplate from 'template/NewItemBarTemplate';
+import CenterBarTemplate from 'template/CenterBarTemplate';
+import PageTemplate from 'template/PageTemplate';
+import Navigation from 'components/molecules/Navigation';
 import Password from 'data/Password';
+
+const Wrapper = styled.div`
+  max-width: 1600px;
+  margin: 0 auto;
+`;
+
+const PageWrapper = styled.div`
+  margin: 0 auto;
+  padding: 70px 0;
+  width: 7in;
+`;
 
 function Main() {
   const reference = createRef();
@@ -163,7 +179,14 @@ function Main() {
 
   return (
     <AppContext.Provider value={contextElement}>
-      <h1>Anitex APP</h1>
+      <Wrapper>
+        <Navigation />
+        <PageWrapper>
+          <PageTemplate />
+        </PageWrapper>
+        <NewItemBarTemplate />
+        <CenterBarTemplate />
+      </Wrapper>
     </AppContext.Provider>
   );
 }

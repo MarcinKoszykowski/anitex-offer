@@ -27,7 +27,7 @@ const Firm = ({ firm, anitex }) => (
       index={header.firm.phone}
       text={Functions.phoneFormat(anitex ? header.header.phone : firm.phone)}
     />
-    {(firm.email || anitex) && (
+    {(anitex || firm.email) && (
       <Text index={header.firm.email} text={anitex ? header.header.email : firm.email} />
     )}
   </Wrapper>
