@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   }
 `;
 
-function Product({ item, deleteProduct, number }) {
+function Product({ item, deleteButtonOnClick, number }) {
   const { name, price, image } = item;
 
   return (
@@ -46,7 +46,7 @@ function Product({ item, deleteProduct, number }) {
       <Name>{name}</Name>
       <Price>{Functions.priceFormat(price)}</Price>
       <Image src={image} />
-      <DeleteButton onClick={deleteProduct} buttonColor={Colors.red} icon={trashIcon} />
+      <DeleteButton onClick={deleteButtonOnClick} buttonColor={Colors.red} icon={trashIcon} />
     </Wrapper>
   );
 }
