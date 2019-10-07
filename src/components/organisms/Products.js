@@ -11,16 +11,16 @@ const Wrapper = styled.div`
 `;
 
 function Products({ context }) {
-  // const { product, deleteProduct } = context;
+  const { product, deleteProduct } = context;
 
   return (
     <Wrapper>
-      {context.product.map(item => (
+      {product.map(item => (
         <Product
-          number={context.product.findIndex(index => index.name === item.name)}
+          number={product.findIndex(index => index.name === item.name)}
           key={item.name}
           item={item}
-          deleteButtonOnClick={context.deleteProduct}
+          deleteButtonOnClick={deleteProduct}
         />
       ))}
     </Wrapper>
