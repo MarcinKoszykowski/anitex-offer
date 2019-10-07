@@ -1,6 +1,6 @@
 import React from 'react';
-import { save } from '../../../data/Value';
-import FormInput from '../../molecules/FormInput';
+import { save } from 'data/Value';
+import FormInput from 'components/molecules/FormInput';
 
 const Save = ({ fileName, inputFileName }) => (
   <FormInput

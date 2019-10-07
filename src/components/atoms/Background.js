@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backgoundImage from '../../assets/images/background.jpg';
+import backgoundImage from 'assets/images/background.jpg';
 
 const Background = styled.div`
   position: fixed;

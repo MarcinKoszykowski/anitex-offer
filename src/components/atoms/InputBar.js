@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Colors from '../../styled/Colors';
+import Colors from 'styled/Colors';
 
 const InputBar = styled.div`
   width: 100%;

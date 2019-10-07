@@ -1,6 +1,6 @@
 import React from 'react';
-import CheckboxLabel from '../atoms/CheckboxLabel';
-import Checkmark from '../atoms/Checkmark';
+import CheckboxLabel from 'components/atoms/CheckboxLabel';
+import Checkmark from 'components/atoms/Checkmark';
 
 const Checkbox = ({ checked, children, checkboxOnChange }) => (
   <CheckboxLabel>

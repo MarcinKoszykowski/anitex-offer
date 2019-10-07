@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect, createRef } from 'react';
+import AppContext from 'context';
+import Password from 'data/Password';
 
 function Main() {
+  const reference = createRef();
+  const inputReference = createRef();
+
   const [edit, setEdit] = useState(false);
   const [login, setLogin] = useState(false);
   const [print, setPrint] = useState(false);
@@ -159,7 +164,7 @@ function Main() {
   return (
     <AppContext.Provider value={contextElement}>
       <h1>Anitex APP</h1>
-  </AppContext.Provider>
+    </AppContext.Provider>
   );
 }
 

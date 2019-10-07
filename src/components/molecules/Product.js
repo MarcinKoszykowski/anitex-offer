@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import Name from '../atoms/Product/Name';
-import Functions from '../../data/Functions';
-import Image from '../atoms/Product/Image';
-import withContext from '../../hoc/withContext';
-import trashIcon from '../../assets/icons/rubbish-bin.svg';
-import Button from '../atoms/Button';
-import Price from '../atoms/Product/Price';
-import Colors from '../../styled/Colors';
+import Name from 'components/atoms/Product/Name';
+import Functions from 'data/Functions';
+import Image from 'components/atoms/Product/Image';
+import trashIcon from 'assets/icons/rubbish-bin.svg';
+import Button from 'components/atoms/Button';
+import Price from 'components/atoms/Product/Price';
+import Colors from 'styled/Colors';
 
 const DeleteButton = styled(Button)`
   visibility: hidden;

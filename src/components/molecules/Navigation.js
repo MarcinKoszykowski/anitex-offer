@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactToPrint from 'react-to-print';
 import styled from 'styled-components';
-import Colors from '../../styled/Colors';
-import Button from '../atoms/Button';
-import loginIcon from '../../assets/icons/login.svg';
-import printIcon from '../../assets/icons/pdf-file.svg';
-import addIcon from '../../assets/icons/add.svg';
-import saveIcon from '../../assets/icons/save-file-option.svg';
-import exportIcon from '../../assets/icons/export.svg';
-import logouttIcon from '../../assets/icons/logout.svg';
-import withContext from '../../hoc/withContext';
+import Colors from 'styled/Colors';
+import Button from 'components/atoms/Button';
+import loginIcon from 'assets/icons/login.svg';
+import printIcon from 'assets/icons/pdf-file.svg';
+import addIcon from 'assets/icons/add.svg';
+import saveIcon from 'assets/icons/save-file-option.svg';
+import exportIcon from 'assets/icons/export.svg';
+import logouttIcon from 'assets/icons/logout.svg';
+import withContext from 'hoc/withContext';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -47,7 +47,7 @@ const LogoutButton = styled(LoginButton)`
 
 function Navigation({ context }) {
   const { login, buttonPrintOnClick, openNewItemBar, reference, openCenterBar, logout } = context;
-  
+
   return (
     <Wrapper>
       <ReactToPrint
@@ -88,7 +88,7 @@ function Navigation({ context }) {
         buttonColor={Colors.grey}
       />
     </Wrapper>
-  )
-};
+  );
+}
 
 export default withContext(Navigation);

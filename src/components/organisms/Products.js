@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Product from '../molecules/Product';
-import withContext from '../../hoc/withContext';
+import Product from 'components/molecules/Product';
+import withContext from 'hoc/withContext';
 
 const Wrapper = styled.div`
   margin: 5px auto 0;

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Name from '../atoms/Firm/Name';
-import SecondName from '../atoms/Firm/SecondName';
-import Text from '../molecules/Text';
-import { header } from '../../data/Value';
-import Functions from '../../data/Functions';
-import withContext from '../../hoc/withContext';
+import Name from 'components/atoms/Firm/Name';
+import SecondName from 'components/atoms/Firm/SecondName';
+import Text from 'components/molecules/Text';
+import { header } from 'data/Value';
+import Functions from 'data/Functions';
+import withContext from 'hoc/withContext';
 
 const Wrapper = styled.div`
   position: relative;

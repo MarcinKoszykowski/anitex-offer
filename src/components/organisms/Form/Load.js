@@ -1,6 +1,6 @@
 import React from 'react';
-import FormInput from '../../molecules/FormInput';
-import withContext from '../../../hoc/withContext';
+import FormInput from 'components/molecules/FormInput';
+import withContext from 'hoc/withContext';
 
 function Load({ loadOnChange, context }) {
   const { inputReference } = context;

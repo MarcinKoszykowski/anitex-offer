@@ -1,6 +1,6 @@
 import React from 'react';
-import { login } from '../../../data/Value';
-import FormInput from '../../molecules/FormInput';
+import { login } from 'data/Value';
+import FormInput from 'components//molecules/FormInput';
 
 const Login = ({ password, inputPassword }) => (
   <FormInput

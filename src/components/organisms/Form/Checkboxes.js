@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { form } from '../../../data/Value';
-import Checkbox from '../../molecules/Checkbox';
+import { form } from 'data/Value';
+import Checkbox from 'components/molecules/Checkbox';
 
 const Wrapper = styled.div`
   margin-bottom: 20px;

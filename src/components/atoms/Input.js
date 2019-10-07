@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import InputBar from './InputBar';
-import Label from './Label';
-import Colors from '../../styled/Colors';
+import InputBar from 'components/atoms/InputBar';
+import Label from 'components/atoms/Label';
+import Colors from 'styled/Colors';
 
 const Input = styled.input`
   border: none;

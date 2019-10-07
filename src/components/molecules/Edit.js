@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../atoms/Button';
-import Colors from '../../styled/Colors';
-import addIcon from '../../assets/icons/add.svg';
-import editIcon from '../../assets/icons/writing.svg';
+import Button from 'components/atoms/Button';
+import addIcon from 'assets/icons/add.svg';
+import editIcon from 'assets/icons/writing.svg';
+import Colors from "./.styled/Colors";
 
 const StyledButton = styled(Button)`
   display: ${({ print }) => (print ? `none` : null)};

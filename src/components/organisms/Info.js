@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Text from '../molecules/Text';
-import { info as infoValue } from '../../data/Value';
-import Colors from '../../styled/Colors';
-import Edit from '../molecules/Edit';
-import withContext from '../../hoc/withContext';
+import Text from 'components/molecules/Text';
+import { info as infoValue } from 'data/Value';
+import Colors from 'styled/Colors';
+import Edit from 'components/molecules/Edit';
+import withContext from 'hoc/withContext';
 
 const Wrapper = styled.div`
   position: relative;
@@ -21,7 +21,13 @@ function Info({ context }) {
       <Text info index={infoValue.delivery} text={info.delivery} />
       <Text info index={infoValue.deadline} text={info.deadline} />
       <Text info index={infoValue.payment} text={info.payment} />
-      <Edit type="info" editButtonOnClick={openNewItemBar} login={login} print={print} value={info.delivery} />
+      <Edit
+        type="info"
+        editButtonOnClick={openNewItemBar}
+        login={login}
+        print={print}
+        value={info.delivery}
+      />
     </Wrapper>
   );
 }

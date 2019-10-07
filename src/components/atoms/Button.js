@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Colors from '../../styled/Colors';
+import Colors from 'styled/Colors';
 
 const Button = styled.button`
   cursor: pointer;

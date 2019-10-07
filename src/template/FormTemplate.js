@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Checkboxes from '../components/organisms/Form/Checkboxes';
-import Firm from '../components/organisms/Form/Firm';
-import Info from '../components/organisms/Form/Info';
-import Product from '../components/organisms/Form/Product';
-import withContext from '../hoc/withContext';
-import Button from '../components/atoms/Button';
-import Colors from '../styled/Colors';
-import addIcon from '../assets/icons/add.svg';
+import Checkboxes from 'components/organisms/Form/Checkboxes';
+import Firm from 'components/organisms/Form/Firm';
+import Info from 'components/organisms/Form/Info';
+import Product from 'components/organisms/Form/Product';
+import withContext from 'hoc/withContext';
+import Button from 'components/atoms/Button';
+import Colors from 'styled/Colors';
+import addIcon from 'assets/icons/add.svg';
 
 const Form = styled.form`
   margin: 0 50px;

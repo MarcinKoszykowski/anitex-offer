@@ -1,6 +1,6 @@
 import React from 'react';
-import { form } from '../../../data/Value';
-import FormInput from '../../molecules/FormInput';
+import { form } from 'data/Value';
+import FormInput from 'components/molecules/FormInput';
 
 const Product = ({ product, inputProduct }) => (
   <>
