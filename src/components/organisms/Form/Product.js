@@ -1,0 +1,31 @@
+import React from 'react';
+import { form } from '../../../data/Value';
+import FormInput from '../../molecules/FormInput';
+
+const Product = ({ product, inputProduct }) => (
+  <>
+    <FormInput
+      name={form.name.product.name}
+      label={form.label.product.name}
+      maxLength="35"
+      value={product.name}
+      onChange={inputProduct}
+    />
+    <FormInput
+      name={form.name.product.price}
+      label={form.label.product.price}
+      pattern={form.pattern.price}
+      value={product.price}
+      onChange={inputProduct}
+    />
+    <FormInput
+      name={form.name.product.image}
+      label={form.label.product.image}
+      type="url"
+      value={product.image}
+      onChange={inputProduct}
+    />
+  </>
+);
+
+export default Product;
