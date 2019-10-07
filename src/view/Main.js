@@ -7,6 +7,7 @@ import PageTemplate from 'template/PageTemplate';
 import Navigation from 'components/molecules/Navigation';
 import Error from 'components/molecules/Error';
 import Password from 'data/Password';
+import Firefox from '../components/molecules/Firefox';
 
 const Wrapper = styled.div`
   max-width: 1600px;
@@ -47,6 +48,8 @@ function Main() {
 
   const [product, setProduct] = useState([]);
   const [formType, setFormType] = useState('');
+
+  const isFirefox = typeof InstallTrigger !== 'undefined';
 
   const openNewItemBar = type => {
     setFormType(type);
@@ -173,6 +176,7 @@ function Main() {
     logout,
     loadData,
     edit,
+    setError,
   };
 
   useEffect(() => {
@@ -189,6 +193,7 @@ function Main() {
         <NewItemBarTemplate />
         <CenterBarTemplate />
         <Error error={error} />
+        {!isFirefox && <Firefox />}
       </Wrapper>
     </AppContext.Provider>
   );

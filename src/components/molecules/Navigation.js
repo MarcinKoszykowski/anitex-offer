@@ -46,7 +46,15 @@ const LogoutButton = styled(LoginButton)`
 `;
 
 function Navigation({ context }) {
-  const { login, buttonPrintOnClick, openNewItemBar, reference, openCenterBar, logout } = context;
+  const {
+    login,
+    buttonPrintOnClick,
+    openNewItemBar,
+    reference,
+    openCenterBar,
+    logout,
+    setError,
+  } = context;
 
   return (
     <Wrapper>
@@ -59,7 +67,10 @@ function Navigation({ context }) {
       />
       <LoginButton
         disabled={login}
-        onClick={() => openCenterBar('login')}
+        onClick={() => {
+          openCenterBar('login');
+          setError(false);
+        }}
         icon={loginIcon}
         buttonColor={Colors.blue}
       />

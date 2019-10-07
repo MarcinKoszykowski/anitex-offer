@@ -1,4 +1,5 @@
 const error = 'brak dostępu - błędne hasło';
+const firefox = 'Dla poprawnego działania aplikacji skorzystaj z przeglądarki Firefox';
 
 const info = {
   delivery: 'Waruki dostawy:',
@@ -91,4 +92,4 @@ const save = {
   label: 'wprowadź nazwę pliku',
 };
 
-export { info, error, form, header, login, save };
+export { firefox, info, error, form, header, login, save };
