@@ -92,4 +92,18 @@ const save = {
   label: 'wprowadź nazwę pliku',
 };
 
-export { firefox, info, error, form, header, login, save };
+const buttonTitle = {
+  product: {
+    add: 'Dodaj produkt',
+    delete: 'Usuń produkt',
+  },
+  print: 'Wydrukuj do PDF',
+  login: 'Zaloguj',
+  offer: {
+    load: 'Wczytaj ofertę',
+    save: 'Zapisz ofertę',
+  },
+  logout: 'Wyloguj',
+};
+
+export { buttonTitle, firefox, info, error, form, header, login, save };

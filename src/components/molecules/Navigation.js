@@ -10,6 +10,7 @@ import saveIcon from 'assets/icons/save-file-option.svg';
 import exportIcon from 'assets/icons/export.svg';
 import logouttIcon from 'assets/icons/logout.svg';
 import withContext from 'hoc/withContext';
+import { buttonTitle } from '../../data/Value';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -62,10 +63,16 @@ function Navigation({ context }) {
         onBeforeGetContent={buttonPrintOnClick}
         content={() => reference.current}
         trigger={() => (
-          <PrintButton disabled={!login} icon={printIcon} buttonColor={Colors.yellow} />
+          <PrintButton
+            title={buttonTitle.print}
+            disabled={!login}
+            icon={printIcon}
+            buttonColor={Colors.yellow}
+          />
         )}
       />
       <LoginButton
+        title={buttonTitle.login}
         disabled={login}
         onClick={() => {
           openCenterBar('login');
@@ -75,24 +82,28 @@ function Navigation({ context }) {
         buttonColor={Colors.blue}
       />
       <AddButton
+        title={buttonTitle.product.add}
         disabled={!login}
         onClick={() => openNewItemBar('product')}
         icon={addIcon}
         buttonColor={Colors.red}
       />
       <LoadButton
+        title={buttonTitle.offer.load}
         disabled={!login}
         onClick={() => openCenterBar('load')}
         icon={exportIcon}
         buttonColor={Colors.orange}
       />
       <SaveButton
+        title={buttonTitle.offer.save}
         disabled={!login}
         onClick={() => openCenterBar('fileName')}
         icon={saveIcon}
         buttonColor={Colors.violet}
       />
       <LogoutButton
+        title={buttonTitle.logout}
         disabled={!login}
         onClick={logout}
         icon={logouttIcon}

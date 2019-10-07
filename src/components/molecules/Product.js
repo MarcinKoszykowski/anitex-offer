@@ -7,6 +7,7 @@ import trashIcon from 'assets/icons/rubbish-bin.svg';
 import Button from 'components/atoms/Button';
 import Price from 'components/atoms/Product/Price';
 import Colors from 'styled/Colors';
+import { buttonTitle } from '../../data/Value';
 
 const DeleteButton = styled(Button)`
   visibility: hidden;
@@ -24,7 +25,6 @@ const DeleteButton = styled(Button)`
 
 const Wrapper = styled.div`
   position: relative;
-  cursor: pointer;
   margin-top: ${({ number }) => Functions.setMargin(number)};
   margin-left: 5px;
   margin-right: 5px;
@@ -33,11 +33,11 @@ const Wrapper = styled.div`
 
   &:hover > ${DeleteButton} {
     visibility: visible;
-    opacity: 1;
+    opacity: 0.8;
   }
 `;
 
-function Product({ item, deleteButtonOnClick, number }) {
+function Product({ item, deleteButtonOnClick, number, disabled }) {
   const { name, price, image } = item;
 
   return (
@@ -46,9 +46,11 @@ function Product({ item, deleteButtonOnClick, number }) {
       <Price>{Functions.priceFormat(price)}</Price>
       <Image src={image} />
       <DeleteButton
+        title={buttonTitle.product.delete}
         onClick={() => deleteButtonOnClick(number)}
         buttonColor={Colors.red}
         icon={trashIcon}
+        disabled={disabled}
       />
     </Wrapper>
   );

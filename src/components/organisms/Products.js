@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `;
 
 function Products({ context }) {
-  const { product, deleteProduct } = context;
+  const { product, deleteProduct, login } = context;
 
   return (
     <Wrapper>
@@ -21,6 +21,7 @@ function Products({ context }) {
           key={item.name}
           item={item}
           deleteButtonOnClick={deleteProduct}
+          disabled={!login}
         />
       ))}
     </Wrapper>

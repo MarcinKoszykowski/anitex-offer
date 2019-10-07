@@ -22,6 +22,7 @@ function Info({ context }) {
       <Text info index={infoValue.deadline} text={info.deadline} />
       <Text info index={infoValue.payment} text={info.payment} />
       <Edit
+        info
         type="info"
         editButtonOnClick={openNewItemBar}
         login={login}

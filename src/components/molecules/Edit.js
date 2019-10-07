@@ -17,8 +17,11 @@ const StyledButton = styled(Button)`
   z-index: 1;
 `;
 
-const Edit = ({ type, value, print, login, editButtonOnClick }) => (
+const Edit = ({ info, type, value, print, login, editButtonOnClick }) => (
   <StyledButton
+    title={`${value ? `Edytuj ` : `Wprowadź `}informację o ${
+      info ? `dostawie i płatności` : `firmie`
+    }`}
     disabled={!login}
     print={print}
     onClick={() => editButtonOnClick(type)}
