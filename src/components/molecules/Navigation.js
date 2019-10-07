@@ -45,46 +45,50 @@ const LogoutButton = styled(LoginButton)`
   background-size: 55% 55%;
 `;
 
-const Navigation = ({ login, buttonPrintOnClick, openNewItemBar, reference, openCenterBar, logout }) => (
-  <Wrapper>
-    <ReactToPrint
-      onBeforeGetContent={buttonPrintOnClick}
-      content={() => reference.current}
-      trigger={() => (
-        <PrintButton disabled={!login} icon={printIcon} buttonColor={Colors.yellow} />
-      )}
-    />
-    <LoginButton
-      disabled={login}
-      onClick={() => openCenterBar('login')}
-      icon={loginIcon}
-      buttonColor={Colors.blue}
-    />
-    <AddButton
-      disabled={!login}
-      onClick={() => openNewItemBar('product')}
-      icon={addIcon}
-      buttonColor={Colors.red}
-    />
-    <LoadButton
-      disabled={!login}
-      onClick={() => openCenterBar('load')}
-      icon={exportIcon}
-      buttonColor={Colors.orange}
-    />
-    <SaveButton
-      disabled={!login}
-      onClick={() => openCenterBar('fileName')}
-      icon={saveIcon}
-      buttonColor={Colors.violet}
-    />
-    <LogoutButton
-      disabled={!login}
-      onClick={logout}
-      icon={logouttIcon}
-      buttonColor={Colors.grey}
-    />
-  </Wrapper>
-);
+function Navigation({ context }) {
+  const { login, buttonPrintOnClick, openNewItemBar, reference, openCenterBar, logout } = context;
+  
+  return (
+    <Wrapper>
+      <ReactToPrint
+        onBeforeGetContent={buttonPrintOnClick}
+        content={() => reference.current}
+        trigger={() => (
+          <PrintButton disabled={!login} icon={printIcon} buttonColor={Colors.yellow} />
+        )}
+      />
+      <LoginButton
+        disabled={login}
+        onClick={() => openCenterBar('login')}
+        icon={loginIcon}
+        buttonColor={Colors.blue}
+      />
+      <AddButton
+        disabled={!login}
+        onClick={() => openNewItemBar('product')}
+        icon={addIcon}
+        buttonColor={Colors.red}
+      />
+      <LoadButton
+        disabled={!login}
+        onClick={() => openCenterBar('load')}
+        icon={exportIcon}
+        buttonColor={Colors.orange}
+      />
+      <SaveButton
+        disabled={!login}
+        onClick={() => openCenterBar('fileName')}
+        icon={saveIcon}
+        buttonColor={Colors.violet}
+      />
+      <LogoutButton
+        disabled={!login}
+        onClick={logout}
+        icon={logouttIcon}
+        buttonColor={Colors.grey}
+      />
+    </Wrapper>
+  )
+};
 
-export default Navigation;
+export default withContext(Navigation);
