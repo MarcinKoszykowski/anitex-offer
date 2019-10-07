@@ -20,7 +20,6 @@ const PageWrapper = styled.div`
 
 function Main() {
   const reference = createRef();
-  const inputReference = createRef();
 
   const [edit, setEdit] = useState(false);
   const [login, setLogin] = useState(false);
@@ -161,7 +160,6 @@ function Main() {
     checkPassword,
     deleteProduct,
     reference,
-    inputReference,
     buttonPrintOnClick,
     saveData,
     centerBarIsVisible,

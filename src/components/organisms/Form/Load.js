@@ -1,18 +1,8 @@
 import React from 'react';
 import FormInput from 'components/molecules/FormInput';
-import withContext from 'hoc/withContext';
 
-function Load({ loadOnChange, context }) {
-  const { inputReference } = context;
+const Load = ({ loadOnChange }) => (
+  <FormInput onChange={loadOnChange} type="file" accept="application/json" />
+);
 
-  return (
-    <FormInput
-      onChange={loadOnChange}
-      reference={inputReference}
-      type="file"
-      accept="application/json"
-    />
-  );
-}
-
-export default withContext(Load);
+export default Load;
