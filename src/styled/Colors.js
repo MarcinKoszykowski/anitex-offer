@@ -1,4 +1,4 @@
-const Colors = {
+const colors = {
   white: 'hsl(0, 100%, 100%)',
   black: 'hsl(0, 100%, 0%)',
   grey: 'hsl(0, 0%, 70%)',
@@ -14,4 +14,4 @@ const Colors = {
   colorWithOpacity: (color, opacity) => `hsla(${color.replace(/hsl|[()]/g, '')}, ${opacity})`,
 };
 
-export default Colors;
+export default colors;

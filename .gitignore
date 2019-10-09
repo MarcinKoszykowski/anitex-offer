@@ -10,7 +10,7 @@
 
 # production
 /build
-/src/data/Password.js
+/src/data/password.js
 
 # misc
 .DS_Store

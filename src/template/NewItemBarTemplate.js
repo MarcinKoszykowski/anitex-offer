@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Colors from 'styled/Colors';
+import colors from 'styled/colors';
 import FormTemplate from 'template/FormTemplate';
 import Button from 'components/atoms/Button';
 import closeIcon from 'assets/icons/close.svg';
 import withContext from 'hoc/withContext';
+import animations from 'styled/animations';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -14,12 +15,13 @@ const Wrapper = styled.div`
   height: 100vh;
   min-height: 700px;
   width: ${({ formType }) => (formType === 'firm' ? `650px` : `550px`)};
-  background-color: ${Colors.colorWithOpacity(Colors.white, 0.95)};
+  background-color: ${colors.colorWithOpacity(colors.white, 0.95)};
   z-index: 5;
   padding: ${({ formType }) => (formType === 'firm' ? `100px 50px 0px` : `200px 25px 0px`)};
-  box-shadow: -10px 0px 10px 1px ${Colors.colorWithOpacity(Colors.grey, 0.5)};
-  transform: translate(${({ isVisible }) => (isVisible ? `0` : `100%`)});
-  transition: transform 0.4s ease-in;
+  box-shadow: -10px 0px 10px 1px ${colors.colorWithOpacity(colors.grey, 0.5)};
+  animation: ${({ animation }) =>
+      animation ? animations.newItemBarOnAnimation : animations.newItemBarOffAnimation}
+    0.4s ease-in-out forwards;
 `;
 
 const CloseButton = styled(Button)`
@@ -31,19 +33,22 @@ const CloseButton = styled(Button)`
 `;
 
 function NewItemBarTemplate({ context }) {
-  const { newItemBarIsVisible, formType, closeNewItemBar } = context;
+  const { newItemBarIsVisible, formType, closeNewItemBar, newItemBarAnimation } = context;
 
   return (
-    <Wrapper isVisible={newItemBarIsVisible} formType={formType}>
-      <FormTemplate />
-      <CloseButton onClick={closeNewItemBar} icon={closeIcon} buttonColor={Colors.red} />
-    </Wrapper>
+    newItemBarIsVisible && (
+      <Wrapper animation={newItemBarAnimation} formType={formType}>
+        <FormTemplate />
+        <CloseButton onClick={closeNewItemBar} icon={closeIcon} buttonColor={colors.red} />
+      </Wrapper>
+    )
   );
 }
 
 NewItemBarTemplate.propTypes = {
   context: PropTypes.shape({
     newItemBarIsVisible: PropTypes.bool.isRequired,
+    newItemBarAnimation: PropTypes.bool.isRequired,
     formType: PropTypes.string.isRequired,
     closeNewItemBar: PropTypes.func.isRequired,
   }).isRequired,

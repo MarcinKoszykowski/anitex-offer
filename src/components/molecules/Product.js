@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Name from 'components/atoms/Product/Name';
-import Functions from 'data/Functions';
+import functions from 'data/functions';
 import Image from 'components/atoms/Product/Image';
 import trashIcon from 'assets/icons/rubbish-bin.svg';
 import Button from 'components/atoms/Button';
 import Price from 'components/atoms/Product/Price';
-import Colors from 'styled/Colors';
-import { buttonTitle } from '../../data/Value';
+import colors from 'styled/colors';
+import { buttonTitle } from 'data/value';
 
 const DeleteButton = styled(Button)`
   visibility: hidden;
@@ -26,7 +26,7 @@ const DeleteButton = styled(Button)`
 
 const Wrapper = styled.div`
   position: relative;
-  margin-top: ${({ number }) => Functions.setMargin(number)};
+  margin-top: ${({ number }) => functions.setMargin(number)};
   margin-left: 5px;
   margin-right: 5px;
   height: 285px;
@@ -44,12 +44,12 @@ function Product({ item, deleteButtonOnClick, number, disabled }) {
   return (
     <Wrapper number={number}>
       <Name>{name}</Name>
-      <Price>{Functions.priceFormat(price)}</Price>
+      <Price>{functions.priceFormat(price)}</Price>
       <Image src={image} />
       <DeleteButton
         title={buttonTitle.product.delete}
         onClick={() => deleteButtonOnClick(number)}
-        buttonColor={Colors.red}
+        buttonColor={colors.red}
         icon={trashIcon}
         disabled={disabled}
       />

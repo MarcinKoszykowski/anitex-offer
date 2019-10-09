@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { form } from 'data/Value';
+import { form } from 'data/value';
 import FormInput from 'components/molecules/FormInput';
 
 const Product = ({ product, inputProduct }) => (

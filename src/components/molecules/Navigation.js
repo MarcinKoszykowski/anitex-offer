@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactToPrint from 'react-to-print';
 import styled from 'styled-components';
-import Colors from 'styled/Colors';
+import colors from 'styled/colors';
 import Button from 'components/atoms/Button';
 import loginIcon from 'assets/icons/login.svg';
 import printIcon from 'assets/icons/pdf-file.svg';
@@ -11,7 +11,7 @@ import saveIcon from 'assets/icons/save-file-option.svg';
 import exportIcon from 'assets/icons/export.svg';
 import logouttIcon from 'assets/icons/logout.svg';
 import withContext from 'hoc/withContext';
-import { buttonTitle } from '../../data/Value';
+import { buttonTitle } from 'data/value';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -68,7 +68,7 @@ function Navigation({ context }) {
             title={buttonTitle.print}
             disabled={!login}
             icon={printIcon}
-            buttonColor={Colors.yellow}
+            buttonColor={colors.yellow}
           />
         )}
       />
@@ -80,35 +80,35 @@ function Navigation({ context }) {
           setError(false);
         }}
         icon={loginIcon}
-        buttonColor={Colors.blue}
+        buttonColor={colors.blue}
       />
       <AddButton
         title={buttonTitle.product.add}
         disabled={!login}
         onClick={() => openNewItemBar('product')}
         icon={addIcon}
-        buttonColor={Colors.red}
+        buttonColor={colors.red}
       />
       <LoadButton
         title={buttonTitle.offer.load}
         disabled={!login}
         onClick={() => openCenterBar('load')}
         icon={exportIcon}
-        buttonColor={Colors.orange}
+        buttonColor={colors.orange}
       />
       <SaveButton
         title={buttonTitle.offer.save}
         disabled={!login}
         onClick={() => openCenterBar('fileName')}
         icon={saveIcon}
-        buttonColor={Colors.violet}
+        buttonColor={colors.violet}
       />
       <LogoutButton
         title={buttonTitle.logout}
         disabled={!login}
         onClick={logout}
         icon={logouttIcon}
-        buttonColor={Colors.grey}
+        buttonColor={colors.grey}
       />
     </Wrapper>
   );

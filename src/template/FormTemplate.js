@@ -7,7 +7,7 @@ import Info from 'components/organisms/Form/Info';
 import Product from 'components/organisms/Form/Product';
 import withContext from 'hoc/withContext';
 import Button from 'components/atoms/Button';
-import Colors from 'styled/Colors';
+import colors from 'styled/colors';
 import addIcon from 'assets/icons/add.svg';
 
 const Form = styled.form`
@@ -132,11 +132,6 @@ function FormTemplate({ context }) {
       addInfo(e, formInfo);
     } else {
       addProduct(e, formProduct);
-      setFormProduct({
-        name: '',
-        price: '',
-        image: '',
-      });
     }
   };
   return (
@@ -151,7 +146,7 @@ function FormTemplate({ context }) {
       {formType === 'product' && (
         <Product product={formProduct} inputProduct={handleInputChangeProduct} />
       )}
-      <FormButton icon={addIcon} buttonColor={Colors.green} />
+      <FormButton icon={addIcon} buttonColor={colors.green} />
     </Form>
   );
 }

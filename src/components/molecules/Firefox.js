@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Colors from 'styled/Colors';
-import { firefox } from 'data/Value';
+import colors from 'styled/colors';
+import { firefox } from 'data/value';
 import ErrorText from 'components/atoms/ErrorText';
 
 const Wrapper = styled.div`
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   left: 0;
   right: 0;
   margin: auto;
-  background-color: ${Colors.red};
+  background-color: ${colors.red};
   text-align: center;
   border-radius: 15px;
   padding: 20px;

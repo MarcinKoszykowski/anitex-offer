@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Text from 'components/molecules/Text';
-import { info as infoValue } from 'data/Value';
-import Colors from 'styled/Colors';
+import { info as infoValue } from 'data/value';
+import colors from 'styled/colors';
 import Edit from 'components/molecules/Edit';
 import withContext from 'hoc/withContext';
 
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   position: relative;
   text-align: left;
   padding: 15px 10px;
-  border-bottom: 1px dashed ${Colors.grey};
+  border-bottom: 1px dashed ${colors.grey};
 `;
 
 function Info({ context }) {

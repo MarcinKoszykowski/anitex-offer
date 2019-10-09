@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import Name from 'components/atoms/Firm/Name';
 import SecondName from 'components/atoms/Firm/SecondName';
 import Text from 'components/molecules/Text';
-import { header } from 'data/Value';
-import Functions from 'data/Functions';
+import { header } from 'data/value';
+import functions from 'data/functions';
 
 const Wrapper = styled.div`
   position: relative;
@@ -26,7 +26,7 @@ const Firm = ({ firm, anitex }) => (
     <Text index={header.firm.nip} text={anitex ? header.header.nip : firm.nip} />
     <Text
       index={header.firm.phone}
-      text={Functions.phoneFormat(anitex ? header.header.phone : firm.phone)}
+      text={functions.phoneFormat(anitex ? header.header.phone : firm.phone)}
     />
     {(anitex || firm.email) && (
       <Text index={header.firm.email} text={anitex ? header.header.email : firm.email} />

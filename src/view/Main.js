@@ -6,7 +6,7 @@ import CenterBarTemplate from 'template/CenterBarTemplate';
 import PageTemplate from 'template/PageTemplate';
 import Navigation from 'components/molecules/Navigation';
 import Error from 'components/molecules/Error';
-import Password from 'data/Password';
+import password from 'data/password';
 import Firefox from '../components/molecules/Firefox';
 
 const Wrapper = styled.div`
@@ -23,13 +23,15 @@ const PageWrapper = styled.div`
 function Main() {
   const reference = createRef();
 
-  const [error, setError] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [error, setError] = useState(false);
   const [login, setLogin] = useState(false);
   const [print, setPrint] = useState(false);
   const [updateProduct, setUpdateProduct] = useState(false);
   const [centerBarIsVisible, setCenterBarIsVisible] = useState(false);
+  const [centerBarAnimation, setCenterBarAnimation] = useState(false);
   const [newItemBarIsVisible, setNewItemBarIsVisible] = useState(false);
+  const [newItemBarAnimation, setNewItemBarAnimation] = useState(false);
   const [firm, setFirm] = useState({
     firm1: '',
     firm2: '',
@@ -54,19 +56,23 @@ function Main() {
   const openNewItemBar = type => {
     setFormType(type);
     setNewItemBarIsVisible(true);
+    setNewItemBarAnimation(true);
   };
 
   const closeNewItemBar = () => {
-    setNewItemBarIsVisible(false);
+    setNewItemBarAnimation(false);
+    setTimeout(() => setNewItemBarIsVisible(false), 400);
   };
 
   const openCenterBar = type => {
     setFormType(type);
     setCenterBarIsVisible(true);
+    setCenterBarAnimation(true);
   };
 
   const closeCenterBar = () => {
-    setCenterBarIsVisible(false);
+    setCenterBarAnimation(false);
+    setTimeout(() => setCenterBarIsVisible(false), 500);
   };
 
   const addFirm = (e, newItem) => {
@@ -89,7 +95,6 @@ function Main() {
     const item = { ...newItem };
     setProduct(prevState => [...prevState, item]);
 
-    setEdit(true);
     closeNewItemBar();
   };
 
@@ -138,9 +143,9 @@ function Main() {
     closeCenterBar();
   };
 
-  const checkPassword = (e, password) => {
+  const checkPassword = (e, pass) => {
     e.preventDefault();
-    if (password === Password) {
+    if (pass === password) {
       setLogin(true);
     } else {
       setLogin(false);
@@ -148,6 +153,7 @@ function Main() {
       setTimeout(() => setError(false), 3000);
     }
     closeCenterBar();
+    e.target.reset();
   };
 
   const logout = () => setLogin(false);
@@ -175,8 +181,10 @@ function Main() {
     login,
     logout,
     loadData,
-    edit,
     setError,
+    centerBarAnimation,
+    newItemBarAnimation,
+    edit,
   };
 
   const handleUpdateProduct = () => setUpdateProduct(false);

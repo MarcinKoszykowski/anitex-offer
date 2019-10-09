@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { form } from 'data/Value';
+import { form } from 'data/value';
 import Checkbox from 'components/molecules/Checkbox';
 
 const Wrapper = styled.div`

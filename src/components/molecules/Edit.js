@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Button from 'components/atoms/Button';
 import addIcon from 'assets/icons/add.svg';
 import editIcon from 'assets/icons/writing.svg';
-import Colors from 'styled/Colors';
+import colors from 'styled/colors';
 
 const StyledButton = styled(Button)`
   display: ${({ print }) => (print ? `none` : null)};
@@ -26,7 +26,7 @@ const Edit = ({ info, type, value, print, login, editButtonOnClick }) => (
     disabled={!login}
     print={print}
     onClick={() => editButtonOnClick(type)}
-    buttonColor={Colors[value ? `blueDark` : `red`]}
+    buttonColor={colors[value ? `blueDark` : `red`]}
     icon={value ? editIcon : addIcon}
   />
 );

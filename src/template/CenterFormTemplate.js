@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import withContext from 'hoc/withContext';
 import Button from 'components/atoms/Button';
-import Colors from 'styled/Colors';
+import colors from 'styled/colors';
 import checkIcon from 'assets/icons/check-mark.svg';
 import Login from 'components/organisms/Form/Login';
 import Save from 'components/organisms/Form/Save';
@@ -51,10 +51,8 @@ function CenterFormTemplate({ context }) {
   const formOnSubmit = e => {
     if (formType === 'login') {
       checkPassword(e, password);
-      setPassword('');
     } else if (formType === 'fileName') {
       saveData(e, fileName);
-      setTimeout(() => setFileName(''), 2000);
     } else {
       loadData(e, data);
     }
@@ -68,7 +66,7 @@ function CenterFormTemplate({ context }) {
         <Save fileName={fileName} inputFileName={handleInputChangeFileName} />
       )}
       {formType === 'load' && <Load loadOnChange={handleInputChangeLoad} />}
-      <FormButton icon={checkIcon} buttonColor={Colors.green} />
+      <FormButton icon={checkIcon} buttonColor={colors.green} />
     </Form>
   );
 }

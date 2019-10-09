@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import logoImg from 'assets/images/anitex.png';
-import Colors from 'styled/Colors';
+import colors from 'styled/colors';
 import Firm from 'components/organisms/Firm';
 import Info from 'components/organisms/Info';
 import withContext from 'hoc/withContext';
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   width: 7in;
   margin: 0 auto;
   text-align: center;
-  background-color: ${Colors.white};
+  background-color: ${colors.white};
 
   ${({ print }) =>
     !print &&
@@ -22,8 +22,8 @@ const Wrapper = styled.div`
       &::after {
         position: absolute;
         content: '';
-        background-color: ${Colors.white};
-        box-shadow: 0 0 5px 5px ${Colors.grey};
+        background-color: ${colors.white};
+        box-shadow: 0 0 5px 5px ${colors.grey};
         border-radius: 15px;
         top: -10px;
         bottom: -10px;
@@ -43,7 +43,7 @@ const FirmWrapper = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-bottom: 1px dashed ${Colors.grey};
+  border-bottom: 1px dashed ${colors.grey};
 `;
 
 function PageTemplate({ context }) {

@@ -1,4 +1,4 @@
-const Functions = {
+const functions = {
   phoneFormat: phone =>
     `+48 ${phone.substring(0, 3)} ${phone.substring(3, 6)} ${phone.substring(6, 9)}`,
   priceFormat: price => `${price}zł - NETTO`,
@@ -13,4 +13,4 @@ const Functions = {
   },
 };
 
-export default Functions;
+export default functions;
