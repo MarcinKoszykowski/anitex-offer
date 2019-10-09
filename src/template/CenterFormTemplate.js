@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import withContext from 'hoc/withContext';
 import Button from 'components/atoms/Button';
@@ -71,5 +72,14 @@ function CenterFormTemplate({ context }) {
     </Form>
   );
 }
+
+CenterFormTemplate.propTypes = {
+  context: PropTypes.shape({
+    formType: PropTypes.string.isRequired,
+    saveData: PropTypes.func.isRequired,
+    checkPassword: PropTypes.func.isRequired,
+    loadData: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default withContext(CenterFormTemplate);

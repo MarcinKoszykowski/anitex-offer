@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import logoImg from 'assets/images/anitex.png';
 import Colors from 'styled/Colors';
@@ -67,5 +68,24 @@ function PageTemplate({ context }) {
     </Wrapper>
   );
 }
+
+PageTemplate.propTypes = {
+  context: PropTypes.shape({
+    print: PropTypes.bool.isRequired,
+    reference: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })])
+      .isRequired,
+    firm: PropTypes.shape({
+      firm1: PropTypes.string.isRequired,
+      firm2: PropTypes.string,
+      address1: PropTypes.string.isRequired,
+      address2: PropTypes.string.isRequired,
+      nip: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+      email: PropTypes.string,
+    }).isRequired,
+    openNewItemBar: PropTypes.func.isRequired,
+    login: PropTypes.bool.isRequired,
+  }).isRequired,
+};
 
 export default withContext(PageTemplate);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const Index = styled.p`
@@ -23,5 +24,11 @@ const Text = ({ info, index, text }) => (
     <p>{text}</p>
   </Wrapper>
 );
+
+Text.propTypes = {
+  info: PropTypes.bool.isRequired,
+  index: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
 
 export default Text;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Name from 'components/atoms/Firm/Name';
 import SecondName from 'components/atoms/Firm/SecondName';
@@ -32,5 +33,22 @@ const Firm = ({ firm, anitex }) => (
     )}
   </Wrapper>
 );
+
+Firm.propTypes = {
+  firm: PropTypes.shape({
+    firm1: PropTypes.string.isRequired,
+    firm2: PropTypes.string,
+    address1: PropTypes.string.isRequired,
+    address2: PropTypes.string.isRequired,
+    nip: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    email: PropTypes.string,
+  }).isRequired,
+  anitex: PropTypes.bool,
+};
+
+Firm.defaultProps = {
+  anitex: false,
+};
 
 export default Firm;

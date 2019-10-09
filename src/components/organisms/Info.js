@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Text from 'components/molecules/Text';
 import { info as infoValue } from 'data/Value';
@@ -32,5 +33,18 @@ function Info({ context }) {
     </Wrapper>
   );
 }
+
+Info.propTypes = {
+  context: PropTypes.shape({
+    info: PropTypes.shape({
+      delivery: PropTypes.string.isRequired,
+      deadline: PropTypes.string.isRequired,
+      payment: PropTypes.string.isRequired,
+    }),
+    print: PropTypes.bool.isRequired,
+    login: PropTypes.bool.isRequired,
+    openNewItemBar: PropTypes.bool.isRequired,
+  }).isRequired,
+};
 
 export default withContext(Info);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { form } from 'data/Value';
 import FormInput from 'components//molecules/FormInput';
 
@@ -27,5 +28,14 @@ const Info = ({ info, inputInfo }) => (
     />
   </>
 );
+
+Info.propTypes = {
+  info: PropTypes.shape({
+    delivery: PropTypes.string.isRequired,
+    deadline: PropTypes.string.isRequired,
+    payment: PropTypes.string.isRequired,
+  }).isRequired,
+  inputInfo: PropTypes.func.isRequired,
+};
 
 export default Info;

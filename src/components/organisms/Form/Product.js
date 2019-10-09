@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { form } from 'data/Value';
 import FormInput from 'components/molecules/FormInput';
 
@@ -27,5 +28,14 @@ const Product = ({ product, inputProduct }) => (
     />
   </>
 );
+
+Product.propTypes = {
+  product: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+  inputProduct: PropTypes.func.isRequired,
+};
 
 export default Product;

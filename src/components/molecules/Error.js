@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Colors from 'styled/Colors';
 import { error as errorValue } from 'data/Value';
@@ -22,5 +23,9 @@ const Error = ({ error }) => (
     <ErrorText>{errorValue}</ErrorText>
   </Wrapper>
 );
+
+Error.propTypes = {
+  error: PropTypes.bool.isRequired,
+};
 
 export default Error;

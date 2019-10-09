@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Colors from 'styled/Colors';
 import Button from 'components/atoms/Button';
@@ -42,5 +43,12 @@ function CenetrBarTemplate({ context }) {
     </Wrapper>
   );
 }
+
+CenetrBarTemplate.propTypes = {
+  context: PropTypes.shape({
+    centerBarIsVisible: PropTypes.bool.isRequired,
+    closeCenterBar: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default withContext(CenetrBarTemplate);

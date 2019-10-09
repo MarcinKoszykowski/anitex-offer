@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from 'react';
+import React, { useState, useEffect, createRef, useCallback } from 'react';
 import styled from 'styled-components';
 import AppContext from 'context';
 import NewItemBarTemplate from 'template/NewItemBarTemplate';
@@ -179,9 +179,12 @@ function Main() {
     setError,
   };
 
+  const handleUpdateProduct = () => setUpdateProduct(false);
+  const handleEffectFunction = useCallback(handleUpdateProduct, updateProduct);
+
   useEffect(() => {
-    setUpdateProduct(false);
-  }, [updateProduct]);
+    handleEffectFunction();
+  }, [handleEffectFunction, updateProduct]);
 
   return (
     <AppContext.Provider value={contextElement}>

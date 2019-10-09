@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Product from 'components/molecules/Product';
 import withContext from 'hoc/withContext';
@@ -27,5 +28,13 @@ function Products({ context }) {
     </Wrapper>
   );
 }
+
+Products.propTypes = {
+  context: PropTypes.shape({
+    product: PropTypes.array.isRequired,
+    deleteProduct: PropTypes.func.isRequired,
+    login: PropTypes.bool.isRequired,
+  }).isRequired,
+};
 
 export default withContext(Products);

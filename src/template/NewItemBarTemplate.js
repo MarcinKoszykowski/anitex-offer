@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Colors from 'styled/Colors';
 import FormTemplate from 'template/FormTemplate';
@@ -39,5 +40,13 @@ function NewItemBarTemplate({ context }) {
     </Wrapper>
   );
 }
+
+NewItemBarTemplate.propTypes = {
+  context: PropTypes.shape({
+    newItemBarIsVisible: PropTypes.bool.isRequired,
+    formType: PropTypes.string.isRequired,
+    closeNewItemBar: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default withContext(NewItemBarTemplate);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Name from 'components/atoms/Product/Name';
 import Functions from 'data/Functions';
@@ -55,5 +56,16 @@ function Product({ item, deleteButtonOnClick, number, disabled }) {
     </Wrapper>
   );
 }
+
+Product.propTypes = {
+  item: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+  deleteButtonOnClick: PropTypes.func.isRequired,
+  number: PropTypes.number.isRequired,
+  disabled: PropTypes.bool.isRequired,
+};
 
 export default Product;

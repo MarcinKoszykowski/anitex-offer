@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Checkboxes from 'components/organisms/Form/Checkboxes';
 import Firm from 'components/organisms/Form/Firm';
@@ -28,14 +29,14 @@ const FormButton = styled(Button)`
 `;
 
 function FormTemplate({ context }) {
-  const { formType, addFirm, addInfo, addProduct, edit } = context;
+  const { firm, info, formType, addFirm, addInfo, addProduct, edit } = context;
 
   const [type, setType] = useState({
     firm2: false,
     email: false,
   });
 
-  const [firm, setFirm] = useState({
+  const [formFirm, setFormFirm] = useState({
     firm1: '',
     firm2: '',
     address1: '',
@@ -45,13 +46,13 @@ function FormTemplate({ context }) {
     email: '',
   });
 
-  const [info, setInfo] = useState({
+  const [formInfo, setFormInfo] = useState({
     delivery: '',
     deadline: '',
     payment: '',
   });
 
-  const [product, setProduct] = useState({
+  const [formProduct, setFormProduct] = useState({
     name: '',
     price: '',
     image: '',
@@ -60,24 +61,24 @@ function FormTemplate({ context }) {
   const setEditState = () => {
     if (edit) {
       setType({
-        firm2: !!context.firm.firm2,
-        email: !!context.firm.email,
+        firm2: !!firm.firm2,
+        email: !!firm.email,
       });
 
-      setFirm({
-        firm1: context.firm.firm1,
-        firm2: context.firm.firm2,
-        address1: context.firm.address1,
-        address2: context.firm.address2,
-        nip: context.firm.nip,
-        phone: context.firm.phone,
-        email: context.firm.email,
+      setFormFirm({
+        firm1: firm.firm1,
+        firm2: firm.firm2,
+        address1: firm.address1,
+        address2: firm.address2,
+        nip: firm.nip,
+        phone: firm.phone,
+        email: firm.email,
       });
 
-      setInfo({
-        delivery: context.info.delivery,
-        deadline: context.info.deadline,
-        payment: context.info.payment,
+      setFormInfo({
+        delivery: info.delivery,
+        deadline: info.deadline,
+        payment: info.payment,
       });
     }
   };
@@ -88,7 +89,7 @@ function FormTemplate({ context }) {
       [value]: !type[value],
     }));
 
-    setFirm(prevState => ({
+    setFormFirm(prevState => ({
       ...prevState,
       [value]: !type[value] ? '' : null,
     }));
@@ -96,42 +97,42 @@ function FormTemplate({ context }) {
 
   const handleInputChangeFirm = e => {
     const value = {
-      ...firm,
+      ...formFirm,
       [e.target.name]: e.target.value,
     };
-    setFirm(value);
+    setFormFirm(value);
   };
 
   const handleInputChangeInfo = e => {
     const value = {
-      ...info,
+      ...formInfo,
       [e.target.name]: e.target.value,
     };
-    setInfo(value);
+    setFormInfo(value);
   };
 
   const handleInputChangeProduct = e => {
     const value = {
-      ...product,
+      ...formProduct,
       [e.target.name]: e.target.value,
     };
-    setProduct(value);
+    setFormProduct(value);
   };
 
-  useEffect(() => {
-    setEditState();
+  const handleEffectFunction = useCallback(setEditState, edit);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [edit]);
+  useEffect(() => {
+    handleEffectFunction();
+  }, [handleEffectFunction]);
 
   const formOnSubmit = e => {
     if (formType === 'firm') {
-      addFirm(e, firm);
+      addFirm(e, formFirm);
     } else if (formType === 'info') {
-      addInfo(e, info);
+      addInfo(e, formInfo);
     } else {
-      addProduct(e, product);
-      setProduct({
+      addProduct(e, formProduct);
+      setFormProduct({
         name: '',
         price: '',
         image: '',
@@ -143,16 +144,40 @@ function FormTemplate({ context }) {
       {formType === 'firm' && (
         <>
           <Checkboxes type={type} checkboxOnClick={handleCheckboxOnClick} />
-          <Firm type={type} firm={firm} inputFirm={handleInputChangeFirm} />
+          <Firm type={type} firm={formFirm} inputFirm={handleInputChangeFirm} />
         </>
       )}
-      {formType === 'info' && <Info info={info} inputInfo={handleInputChangeInfo} />}
+      {formType === 'info' && <Info info={formInfo} inputInfo={handleInputChangeInfo} />}
       {formType === 'product' && (
-        <Product product={product} inputProduct={handleInputChangeProduct} />
+        <Product product={formProduct} inputProduct={handleInputChangeProduct} />
       )}
       <FormButton icon={addIcon} buttonColor={Colors.green} />
     </Form>
   );
 }
+
+FormTemplate.propTypes = {
+  context: PropTypes.shape({
+    firm: PropTypes.shape({
+      firm1: PropTypes.string.isRequired,
+      firm2: PropTypes.string,
+      address1: PropTypes.string.isRequired,
+      address2: PropTypes.string.isRequired,
+      nip: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
+      email: PropTypes.string,
+    }).isRequired,
+    info: PropTypes.shape({
+      delivery: PropTypes.string.isRequired,
+      deadline: PropTypes.string.isRequired,
+      payment: PropTypes.string.isRequired,
+    }),
+    formType: PropTypes.string.isRequired,
+    addFirm: PropTypes.func.isRequired,
+    addInfo: PropTypes.func.isRequired,
+    addProduct: PropTypes.func.isRequired,
+    edit: PropTypes.bool.isRequired,
+  }).isRequired,
+};
 
 export default withContext(FormTemplate);

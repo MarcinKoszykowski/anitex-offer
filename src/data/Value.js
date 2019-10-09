@@ -92,6 +92,10 @@ const save = {
   label: 'wprowadź nazwę pliku',
 };
 
+const load = {
+  name: 'load',
+};
+
 const buttonTitle = {
   product: {
     add: 'Dodaj produkt',
@@ -106,4 +110,4 @@ const buttonTitle = {
   logout: 'Wyloguj',
 };
 
-export { buttonTitle, firefox, info, error, form, header, login, save };
+export { load, buttonTitle, firefox, info, error, form, header, login, save };

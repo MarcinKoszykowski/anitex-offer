@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { login } from 'data/Value';
 import FormInput from 'components//molecules/FormInput';
 
@@ -12,5 +13,10 @@ const Login = ({ password, inputPassword }) => (
     onChange={inputPassword}
   />
 );
+
+Login.propTypes = {
+  password: PropTypes.string.isRequired,
+  inputPassword: PropTypes.func.isRequired,
+};
 
 export default Login;

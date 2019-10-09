@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { form } from 'data/Value';
 import FormInput from 'components/molecules/FormInput';
 
@@ -60,5 +61,22 @@ const Firm = ({ type, firm, inputFirm }) => (
     ) : null}
   </>
 );
+
+Firm.propTypes = {
+  type: PropTypes.shape({
+    firm2: PropTypes.bool.isRequired,
+    email: PropTypes.bool.isRequired,
+  }).isRequired,
+  firm: PropTypes.shape({
+    firm1: PropTypes.string.isRequired,
+    firm2: PropTypes.string,
+    address1: PropTypes.string.isRequired,
+    address2: PropTypes.string.isRequired,
+    nip: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    email: PropTypes.string,
+  }).isRequired,
+  inputFirm: PropTypes.func.isRequired,
+};
 
 export default Firm;

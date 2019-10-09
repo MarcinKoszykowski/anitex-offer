@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactToPrint from 'react-to-print';
 import styled from 'styled-components';
 import Colors from 'styled/Colors';
@@ -112,5 +113,18 @@ function Navigation({ context }) {
     </Wrapper>
   );
 }
+
+Navigation.propTypes = {
+  context: PropTypes.shape({
+    login: PropTypes.bool.isRequired,
+    buttonPrintOnClick: PropTypes.func.isRequired,
+    openNewItemBar: PropTypes.func.isRequired,
+    reference: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })])
+      .isRequired,
+    openCenterBar: PropTypes.func.isRequired,
+    logout: PropTypes.func.isRequired,
+    setError: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default withContext(Navigation);
