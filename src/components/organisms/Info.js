@@ -43,7 +43,7 @@ Info.propTypes = {
     }),
     print: PropTypes.bool.isRequired,
     login: PropTypes.bool.isRequired,
-    openNewItemBar: PropTypes.bool.isRequired,
+    openNewItemBar: PropTypes.func.isRequired,
   }).isRequired,
 };
 

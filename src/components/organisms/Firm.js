@@ -43,12 +43,21 @@ Firm.propTypes = {
     nip: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
     email: PropTypes.string,
-  }).isRequired,
+  }),
   anitex: PropTypes.bool,
 };
 
 Firm.defaultProps = {
   anitex: false,
+  firm: PropTypes.shape({
+    firm1: '',
+    firm2: '',
+    address1: '',
+    address2: '',
+    nip: '',
+    phone: '',
+    email: '',
+  }),
 };
 
 export default Firm;

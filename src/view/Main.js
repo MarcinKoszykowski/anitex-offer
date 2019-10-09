@@ -180,11 +180,11 @@ function Main() {
   };
 
   const handleUpdateProduct = () => setUpdateProduct(false);
-  const handleEffectFunction = useCallback(handleUpdateProduct, updateProduct);
+  const handleEffectFunction = useCallback(handleUpdateProduct, [updateProduct]);
 
   useEffect(() => {
     handleEffectFunction();
-  }, [handleEffectFunction, updateProduct]);
+  }, [handleEffectFunction]);
 
   return (
     <AppContext.Provider value={contextElement}>

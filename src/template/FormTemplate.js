@@ -119,7 +119,7 @@ function FormTemplate({ context }) {
     setFormProduct(value);
   };
 
-  const handleEffectFunction = useCallback(setEditState, edit);
+  const handleEffectFunction = useCallback(setEditState, [edit]);
 
   useEffect(() => {
     handleEffectFunction();

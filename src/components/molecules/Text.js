@@ -26,9 +26,13 @@ const Text = ({ info, index, text }) => (
 );
 
 Text.propTypes = {
-  info: PropTypes.bool.isRequired,
+  info: PropTypes.bool,
   index: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+};
+
+Text.defaultProps = {
+  info: false,
 };
 
 export default Text;
