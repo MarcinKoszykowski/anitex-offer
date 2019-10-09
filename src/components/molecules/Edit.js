@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from 'components/atoms/Button';
 import addIcon from 'assets/icons/add.svg';
@@ -29,5 +30,19 @@ const Edit = ({ info, type, value, print, login, editButtonOnClick }) => (
     icon={value ? editIcon : addIcon}
   />
 );
+
+Edit.propTypes = {
+  info: PropTypes.bool,
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  print: PropTypes.bool.isRequired,
+  login: PropTypes.bool.isRequired,
+  editButtonOnClick: PropTypes.func.isRequired,
+};
+
+Edit.defaultProps = {
+  info: false,
+  value: '',
+};
 
 export default Edit;

@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "dotenv": "^8.1.0",
-    "husky": "^3.0.8",
+    "prop-types": "^15.7.2",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-scripts": "3.1.2",
@@ -33,7 +32,6 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
@@ -41,8 +39,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^3.0.8",
     "lint-staged": "^10.0.0-0",
-    "prettier": "1.18.2"
+    "prettier": "1.18.2",
+    "webpack-env": "^0.8.0"
   },
   "husky": {
     "hooks": {
