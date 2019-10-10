@@ -4,8 +4,8 @@ import colors from 'styled/colors';
 const Button = styled.button`
   cursor: pointer;
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 95px;
+  height: 95px;
   border-radius: 50px;
   background-color: ${({ buttonColor }) => buttonColor};
   background-image: url(${({ icon }) => icon});

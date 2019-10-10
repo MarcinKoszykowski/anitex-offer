@@ -4,12 +4,13 @@ import AppContext from 'context';
 import NewItemBarTemplate from 'template/NewItemBarTemplate';
 import CenterBarTemplate from 'template/CenterBarTemplate';
 import PageTemplate from 'template/PageTemplate';
-import Navigation from 'components/molecules/Navigation';
+import Navigation from 'components/organisms/Navigation';
 import Error from 'components/molecules/Error';
 import password from 'data/password';
-import Firefox from '../components/molecules/Firefox';
+import Firefox from 'components/molecules/Firefox';
 
 const Wrapper = styled.div`
+  position: relative;
   max-width: 1600px;
   margin: 0 auto;
 `;
@@ -27,11 +28,14 @@ function Main() {
   const [error, setError] = useState(false);
   const [login, setLogin] = useState(false);
   const [print, setPrint] = useState(false);
+  const [disabledCenterFormButton, setDisabledCenterFormButton] = useState(false);
   const [updateProduct, setUpdateProduct] = useState(false);
   const [centerBarIsVisible, setCenterBarIsVisible] = useState(false);
   const [centerBarAnimation, setCenterBarAnimation] = useState(false);
   const [newItemBarIsVisible, setNewItemBarIsVisible] = useState(false);
   const [newItemBarAnimation, setNewItemBarAnimation] = useState(false);
+  const [editProductNumber, setEditProductNumber] = useState(null);
+  const [productEdit, setProductEdit] = useState(false);
   const [firm, setFirm] = useState({
     firm1: '',
     firm2: '',
@@ -57,6 +61,7 @@ function Main() {
     setFormType(type);
     setNewItemBarIsVisible(true);
     setNewItemBarAnimation(true);
+    setProductEdit(false);
   };
 
   const closeNewItemBar = () => {
@@ -68,6 +73,7 @@ function Main() {
     setFormType(type);
     setCenterBarIsVisible(true);
     setCenterBarAnimation(true);
+    setDisabledCenterFormButton(false);
   };
 
   const closeCenterBar = () => {
@@ -98,12 +104,32 @@ function Main() {
     closeNewItemBar();
   };
 
+  const editProduct = number => {
+    setEditProductNumber(number);
+    setProductEdit(true);
+    setFormType('product');
+    setNewItemBarIsVisible(true);
+    setNewItemBarAnimation(true);
+  };
+
   const deleteProduct = index => {
     const data = product;
     data.splice(index, 1);
 
     setProduct(data);
     setUpdateProduct(true);
+  };
+
+  const addEditProduct = (e, newItem) => {
+    e.preventDefault();
+
+    const data = product;
+    const item = { ...newItem };
+    data.splice(editProductNumber, 1, item);
+    setProduct(data);
+    setUpdateProduct(true);
+
+    closeNewItemBar();
   };
 
   const buttonPrintOnClick = () => {
@@ -185,6 +211,12 @@ function Main() {
     centerBarAnimation,
     newItemBarAnimation,
     edit,
+    productEdit,
+    editProduct,
+    editProductNumber,
+    addEditProduct,
+    disabledCenterFormButton,
+    setDisabledCenterFormButton,
   };
 
   const handleUpdateProduct = () => setUpdateProduct(false);

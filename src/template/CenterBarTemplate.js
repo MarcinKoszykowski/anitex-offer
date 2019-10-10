@@ -1,12 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import colors from 'styled/colors';
 import Button from 'components/atoms/Button';
 import closeIcon from 'assets/icons/close.svg';
-import withContext from 'hoc/withContext';
 import CenterFormTemplate from 'template/CenterFormTemplate';
 import animations from 'styled/animations';
+import AppContext from 'context';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -35,8 +34,8 @@ const CloseButton = styled(Button)`
   border-width: 3px;
 `;
 
-function CenetrBarTemplate({ context }) {
-  const { centerBarIsVisible, closeCenterBar, centerBarAnimation } = context;
+function CenetrBarTemplate() {
+  const { centerBarIsVisible, closeCenterBar, centerBarAnimation } = useContext(AppContext);
 
   return (
     centerBarIsVisible && (
@@ -48,12 +47,4 @@ function CenetrBarTemplate({ context }) {
   );
 }
 
-CenetrBarTemplate.propTypes = {
-  context: PropTypes.shape({
-    centerBarIsVisible: PropTypes.bool.isRequired,
-    closeCenterBar: PropTypes.func.isRequired,
-    centerBarAnimation: PropTypes.bool.isRequired,
-  }).isRequired,
-};
-
-export default withContext(CenetrBarTemplate);
+export default CenetrBarTemplate;

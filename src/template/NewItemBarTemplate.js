@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import AppContext from 'context';
 import styled from 'styled-components';
 import colors from 'styled/colors';
 import FormTemplate from 'template/FormTemplate';
 import Button from 'components/atoms/Button';
 import closeIcon from 'assets/icons/close.svg';
-import withContext from 'hoc/withContext';
 import animations from 'styled/animations';
 
 const Wrapper = styled.div`
@@ -32,8 +31,10 @@ const CloseButton = styled(Button)`
   border-width: 3px;
 `;
 
-function NewItemBarTemplate({ context }) {
-  const { newItemBarIsVisible, formType, closeNewItemBar, newItemBarAnimation } = context;
+function NewItemBarTemplate() {
+  const { newItemBarIsVisible, formType, closeNewItemBar, newItemBarAnimation } = useContext(
+    AppContext,
+  );
 
   return (
     newItemBarIsVisible && (
@@ -45,13 +46,4 @@ function NewItemBarTemplate({ context }) {
   );
 }
 
-NewItemBarTemplate.propTypes = {
-  context: PropTypes.shape({
-    newItemBarIsVisible: PropTypes.bool.isRequired,
-    newItemBarAnimation: PropTypes.bool.isRequired,
-    formType: PropTypes.string.isRequired,
-    closeNewItemBar: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
-export default withContext(NewItemBarTemplate);
+export default NewItemBarTemplate;

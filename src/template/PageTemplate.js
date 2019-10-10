@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import AppContext from 'context';
 import styled, { css } from 'styled-components';
 import logoImg from 'assets/images/anitex.png';
 import colors from 'styled/colors';
 import Firm from 'components/organisms/Firm';
 import Info from 'components/organisms/Info';
-import withContext from 'hoc/withContext';
 import Edit from 'components/molecules/Edit';
 import Products from 'components/organisms/Products';
 
@@ -46,22 +45,16 @@ const FirmWrapper = styled.div`
   border-bottom: 1px dashed ${colors.grey};
 `;
 
-function PageTemplate({ context }) {
-  const { print, reference, firm, openNewItemBar, login } = context;
+function PageTemplate() {
+  const { print, reference, firm } = useContext(AppContext);
 
   return (
     <Wrapper print={print} ref={reference}>
       <Logo print={print} src={logoImg} />
       <FirmWrapper>
         <Firm anitex />
-        <Firm firm={firm} />
-        <Edit
-          type="firm"
-          editButtonOnClick={openNewItemBar}
-          login={login}
-          print={print}
-          value={firm.firm1}
-        />
+        <Firm />
+        <Edit type="firm" value={firm.firm1} />
       </FirmWrapper>
       <Info />
       <Products />
@@ -69,23 +62,4 @@ function PageTemplate({ context }) {
   );
 }
 
-PageTemplate.propTypes = {
-  context: PropTypes.shape({
-    print: PropTypes.bool.isRequired,
-    reference: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })])
-      .isRequired,
-    firm: PropTypes.shape({
-      firm1: PropTypes.string.isRequired,
-      firm2: PropTypes.string,
-      address1: PropTypes.string.isRequired,
-      address2: PropTypes.string.isRequired,
-      nip: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
-      email: PropTypes.string,
-    }).isRequired,
-    openNewItemBar: PropTypes.func.isRequired,
-    login: PropTypes.bool.isRequired,
-  }).isRequired,
-};
-
-export default withContext(PageTemplate);
+export default PageTemplate;

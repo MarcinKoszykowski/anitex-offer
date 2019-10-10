@@ -100,6 +100,7 @@ const buttonTitle = {
   product: {
     add: 'Dodaj produkt',
     delete: 'Usuń produkt',
+    edit: 'Edytuj produkt',
   },
   print: 'Wydrukuj do PDF',
   login: 'Zaloguj',

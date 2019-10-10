@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import AppContext from 'context';
 import styled from 'styled-components';
 import Button from 'components/atoms/Button';
 import addIcon from 'assets/icons/add.svg';
@@ -18,26 +19,26 @@ const StyledButton = styled(Button)`
   z-index: 1;
 `;
 
-const Edit = ({ info, type, value, print, login, editButtonOnClick }) => (
-  <StyledButton
-    title={`${value ? `Edytuj ` : `Wprowadź `}informację o ${
-      info ? `dostawie i płatności` : `firmie`
-    }`}
-    disabled={!login}
-    print={print}
-    onClick={() => editButtonOnClick(type)}
-    buttonColor={colors[value ? `blueDark` : `red`]}
-    icon={value ? editIcon : addIcon}
-  />
-);
+function Edit({ info, type, value }) {
+  const { openNewItemBar, login, print } = useContext(AppContext);
+  return (
+    <StyledButton
+      title={`${value ? `Edytuj ` : `Wprowadź `}informację o ${
+        info ? `dostawie i płatności` : `firmie`
+      }`}
+      disabled={!login}
+      print={print}
+      onClick={() => openNewItemBar(type)}
+      buttonColor={colors[value ? `blueDark` : `red`]}
+      icon={value ? editIcon : addIcon}
+    />
+  );
+}
 
 Edit.propTypes = {
   info: PropTypes.bool,
   type: PropTypes.string.isRequired,
   value: PropTypes.string,
-  print: PropTypes.bool.isRequired,
-  login: PropTypes.bool.isRequired,
-  editButtonOnClick: PropTypes.func.isRequired,
 };
 
 Edit.defaultProps = {

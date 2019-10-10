@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
-import withContext from 'hoc/withContext';
+import AppContext from 'context';
 import Button from 'components/atoms/Button';
 import colors from 'styled/colors';
 import checkIcon from 'assets/icons/check-mark.svg';
@@ -25,7 +24,16 @@ const FormButton = styled(Button)`
   border-width: 3px;
 `;
 
-function CenterFormTemplate({ context }) {
+function CenterFormTemplate() {
+  const {
+    formType,
+    saveData,
+    checkPassword,
+    loadData,
+    disabledCenterFormButton,
+    setDisabledCenterFormButton,
+  } = useContext(AppContext);
+
   const [password, setPassword] = useState('');
   const [fileName, setFileName] = useState('');
   const [data, setData] = useState(null);
@@ -39,14 +47,18 @@ function CenterFormTemplate({ context }) {
   };
 
   const handleInputChangeLoad = e => {
-    const fr = new FileReader();
-    fr.readAsText(e.target.files[0]);
-    fr.onload = evn => {
-      setData(JSON.parse(evn.target.result));
-    };
+    const file = e.target.files[0];
+    if (file.type === 'application/json') {
+      setDisabledCenterFormButton(false);
+      const fr = new FileReader();
+      fr.readAsText(e.target.files[0]);
+      fr.onload = evn => {
+        setData(JSON.parse(evn.target.result));
+      };
+    } else {
+      setDisabledCenterFormButton(true);
+    }
   };
-
-  const { formType, saveData, checkPassword, loadData } = context;
 
   const formOnSubmit = e => {
     if (formType === 'login') {
@@ -66,18 +78,9 @@ function CenterFormTemplate({ context }) {
         <Save fileName={fileName} inputFileName={handleInputChangeFileName} />
       )}
       {formType === 'load' && <Load loadOnChange={handleInputChangeLoad} />}
-      <FormButton icon={checkIcon} buttonColor={colors.green} />
+      <FormButton disabled={disabledCenterFormButton} icon={checkIcon} buttonColor={colors.green} />
     </Form>
   );
 }
 
-CenterFormTemplate.propTypes = {
-  context: PropTypes.shape({
-    formType: PropTypes.string.isRequired,
-    saveData: PropTypes.func.isRequired,
-    checkPassword: PropTypes.func.isRequired,
-    loadData: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
-export default withContext(CenterFormTemplate);
+export default CenterFormTemplate;

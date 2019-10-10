@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from 'context';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Name from 'components/atoms/Product/Name';
 import functions from 'data/functions';
 import Image from 'components/atoms/Product/Image';
 import trashIcon from 'assets/icons/rubbish-bin.svg';
+import editIcon from 'assets/icons/writing.svg';
 import Button from 'components/atoms/Button';
 import Price from 'components/atoms/Product/Price';
 import colors from 'styled/colors';
@@ -14,7 +16,7 @@ const DeleteButton = styled(Button)`
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
   width: 50px;
@@ -22,6 +24,10 @@ const DeleteButton = styled(Button)`
   background-size: 55% 55%;
   border-width: 3px;
   transition: opacity 0.5s, visibility 0.5s;
+`;
+
+const EditButton = styled(DeleteButton)`
+  top: 60%;
 `;
 
 const Wrapper = styled.div`
@@ -38,21 +44,31 @@ const Wrapper = styled.div`
   }
 `;
 
-function Product({ item, deleteButtonOnClick, number, disabled }) {
+function Product({ item, number }) {
   const { name, price, image } = item;
+  const { deleteProduct, login, editProduct } = useContext(AppContext);
 
   return (
     <Wrapper number={number}>
       <Name>{name}</Name>
       <Price>{functions.priceFormat(price)}</Price>
       <Image src={image} />
-      <DeleteButton
-        title={buttonTitle.product.delete}
-        onClick={() => deleteButtonOnClick(number)}
-        buttonColor={colors.red}
-        icon={trashIcon}
-        disabled={disabled}
-      />
+      {login && (
+        <>
+          <DeleteButton
+            title={buttonTitle.product.delete}
+            onClick={() => deleteProduct(number)}
+            buttonColor={colors.red}
+            icon={trashIcon}
+          />
+          <EditButton
+            title={buttonTitle.product.edit}
+            buttonColor={colors.blueDark}
+            onClick={() => editProduct(number)}
+            icon={editIcon}
+          />
+        </>
+      )}
     </Wrapper>
   );
 }
@@ -63,9 +79,7 @@ Product.propTypes = {
     price: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
   }).isRequired,
-  deleteButtonOnClick: PropTypes.func.isRequired,
   number: PropTypes.number.isRequired,
-  disabled: PropTypes.bool.isRequired,
 };
 
 export default Product;

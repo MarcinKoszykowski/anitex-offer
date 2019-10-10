@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
+import AppContext from 'context';
 import styled from 'styled-components';
 import Checkboxes from 'components/organisms/Form/Checkboxes';
 import Firm from 'components/organisms/Form/Firm';
 import Info from 'components/organisms/Form/Info';
 import Product from 'components/organisms/Form/Product';
-import withContext from 'hoc/withContext';
 import Button from 'components/atoms/Button';
 import colors from 'styled/colors';
 import addIcon from 'assets/icons/add.svg';
@@ -28,8 +27,20 @@ const FormButton = styled(Button)`
   border-width: 3.5px;
 `;
 
-function FormTemplate({ context }) {
-  const { firm, info, formType, addFirm, addInfo, addProduct, edit } = context;
+function FormTemplate() {
+  const {
+    firm,
+    info,
+    product,
+    formType,
+    addFirm,
+    addInfo,
+    addProduct,
+    edit,
+    editProductNumber,
+    productEdit,
+    addEditProduct,
+  } = useContext(AppContext);
 
   const [type, setType] = useState({
     firm2: false,
@@ -81,6 +92,14 @@ function FormTemplate({ context }) {
         payment: info.payment,
       });
     }
+
+    if (productEdit) {
+      setFormProduct({
+        name: product[editProductNumber].name,
+        price: product[editProductNumber].price,
+        image: product[editProductNumber].image,
+      });
+    }
   };
 
   const handleCheckboxOnClick = value => {
@@ -119,7 +138,7 @@ function FormTemplate({ context }) {
     setFormProduct(value);
   };
 
-  const handleEffectFunction = useCallback(setEditState, [edit]);
+  const handleEffectFunction = useCallback(setEditState, [edit, productEdit]);
 
   useEffect(() => {
     handleEffectFunction();
@@ -130,9 +149,11 @@ function FormTemplate({ context }) {
       addFirm(e, formFirm);
     } else if (formType === 'info') {
       addInfo(e, formInfo);
-    } else {
-      addProduct(e, formProduct);
-    }
+    } else if (productEdit) {
+        addEditProduct(e, formProduct);
+      } else {
+        addProduct(e, formProduct);
+      }
   };
   return (
     <Form autoComplete="off" onSubmit={e => formOnSubmit(e)}>
@@ -151,28 +172,4 @@ function FormTemplate({ context }) {
   );
 }
 
-FormTemplate.propTypes = {
-  context: PropTypes.shape({
-    firm: PropTypes.shape({
-      firm1: PropTypes.string.isRequired,
-      firm2: PropTypes.string,
-      address1: PropTypes.string.isRequired,
-      address2: PropTypes.string.isRequired,
-      nip: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
-      email: PropTypes.string,
-    }).isRequired,
-    info: PropTypes.shape({
-      delivery: PropTypes.string.isRequired,
-      deadline: PropTypes.string.isRequired,
-      payment: PropTypes.string.isRequired,
-    }),
-    formType: PropTypes.string.isRequired,
-    addFirm: PropTypes.func.isRequired,
-    addInfo: PropTypes.func.isRequired,
-    addProduct: PropTypes.func.isRequired,
-    edit: PropTypes.bool.isRequired,
-  }).isRequired,
-};
-
-export default withContext(FormTemplate);
+export default FormTemplate;

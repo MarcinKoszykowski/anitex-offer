@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import AppContext from 'context';
 import ReactToPrint from 'react-to-print';
 import styled from 'styled-components';
 import colors from 'styled/colors';
@@ -10,44 +10,24 @@ import addIcon from 'assets/icons/add.svg';
 import saveIcon from 'assets/icons/save-file-option.svg';
 import exportIcon from 'assets/icons/export.svg';
 import logouttIcon from 'assets/icons/logout.svg';
-import withContext from 'hoc/withContext';
 import { buttonTitle } from 'data/value';
 
 const Wrapper = styled.div`
   position: fixed;
-  height: 100vh;
-  width: 100vw;
-  min-height: 350px;
-  max-width: 1600px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-row-gap: 15px;
 `;
 
-const LoginButton = styled(Button)`
-  top: 50px;
-  left: 180px;
+const StyledButton = styled(Button)`
+  position: relative;
 `;
 
-const PrintButton = styled(LoginButton)`
-  top: 170px;
-`;
-
-const AddButton = styled(LoginButton)`
-  top: 290px;
-`;
-
-const LoadButton = styled(LoginButton)`
-  top: 410px;
-`;
-
-const SaveButton = styled(LoginButton)`
-  top: 530px;
-`;
-
-const LogoutButton = styled(LoginButton)`
-  top: 650px;
+const LogoutButton = styled(StyledButton)`
   background-size: 55% 55%;
 `;
 
-function Navigation({ context }) {
+function NavigationButtons() {
   const {
     login,
     buttonPrintOnClick,
@@ -56,23 +36,11 @@ function Navigation({ context }) {
     openCenterBar,
     logout,
     setError,
-  } = context;
+  } = useContext(AppContext);
 
   return (
     <Wrapper>
-      <ReactToPrint
-        onBeforeGetContent={buttonPrintOnClick}
-        content={() => reference.current}
-        trigger={() => (
-          <PrintButton
-            title={buttonTitle.print}
-            disabled={!login}
-            icon={printIcon}
-            buttonColor={colors.yellow}
-          />
-        )}
-      />
-      <LoginButton
+      <StyledButton
         title={buttonTitle.login}
         disabled={login}
         onClick={() => {
@@ -82,21 +50,33 @@ function Navigation({ context }) {
         icon={loginIcon}
         buttonColor={colors.blue}
       />
-      <AddButton
+      <ReactToPrint
+        onBeforeGetContent={buttonPrintOnClick}
+        content={() => reference.current}
+        trigger={() => (
+          <StyledButton
+            title={buttonTitle.print}
+            disabled={!login}
+            icon={printIcon}
+            buttonColor={colors.yellow}
+          />
+        )}
+      />
+      <StyledButton
         title={buttonTitle.product.add}
         disabled={!login}
         onClick={() => openNewItemBar('product')}
         icon={addIcon}
         buttonColor={colors.red}
       />
-      <LoadButton
+      <StyledButton
         title={buttonTitle.offer.load}
         disabled={!login}
         onClick={() => openCenterBar('load')}
         icon={exportIcon}
         buttonColor={colors.orange}
       />
-      <SaveButton
+      <StyledButton
         title={buttonTitle.offer.save}
         disabled={!login}
         onClick={() => openCenterBar('fileName')}
@@ -114,17 +94,4 @@ function Navigation({ context }) {
   );
 }
 
-Navigation.propTypes = {
-  context: PropTypes.shape({
-    login: PropTypes.bool.isRequired,
-    buttonPrintOnClick: PropTypes.func.isRequired,
-    openNewItemBar: PropTypes.func.isRequired,
-    reference: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })])
-      .isRequired,
-    openCenterBar: PropTypes.func.isRequired,
-    logout: PropTypes.func.isRequired,
-    setError: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
-export default withContext(Navigation);
+export default NavigationButtons;
