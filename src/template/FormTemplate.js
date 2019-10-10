@@ -150,10 +150,10 @@ function FormTemplate() {
     } else if (formType === 'info') {
       addInfo(e, formInfo);
     } else if (productEdit) {
-        addEditProduct(e, formProduct);
-      } else {
-        addProduct(e, formProduct);
-      }
+      addEditProduct(e, formProduct);
+    } else {
+      addProduct(e, formProduct);
+    }
   };
   return (
     <Form autoComplete="off" onSubmit={e => formOnSubmit(e)}>
