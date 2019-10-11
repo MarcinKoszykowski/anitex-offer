@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import InputBar from 'components/atoms/InputBar';
 import Label from 'components/atoms/Label';
-import colors from 'styled/colors';
+import { blueDark } from 'styled/colors';
 
 const Input = styled.input`
   border: none;
@@ -18,7 +18,7 @@ const Input = styled.input`
     outline: none;
 
     & ~ ${InputBar} {
-      background: ${colors.blueDark};
+      background: ${blueDark};
     }
     & + ${Label} {
       top: -20px;

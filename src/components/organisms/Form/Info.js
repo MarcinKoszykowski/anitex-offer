@@ -1,33 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { form } from 'data/value';
-import FormInput from 'components//molecules/FormInput';
+import FormInput from 'components/molecules/FormInput';
 
-const Info = ({ info, inputInfo }) => (
-  <>
-    <FormInput
-      name={form.name.info.delivery}
-      label={form.label.info.delivery}
-      maxLength="55"
-      value={info.delivery}
-      onChange={inputInfo}
-    />
-    <FormInput
-      name={form.name.info.deadline}
-      label={form.label.info.deadline}
-      maxLength="55"
-      value={info.deadline}
-      onChange={inputInfo}
-    />
-    <FormInput
-      name={form.name.info.payment}
-      label={form.label.info.payment}
-      maxLength="55"
-      value={info.payment}
-      onChange={inputInfo}
-    />
-  </>
-);
+function Info({ info, inputInfo }) {
+  const { delivery, deadline, payment } = info;
+  const { info: infoName } = form.name;
+  const { info: infoLabel } = form.label;
+
+  return (
+    <>
+      <FormInput
+        name={infoName.delivery}
+        label={infoLabel.delivery}
+        maxLength="55"
+        value={delivery}
+        onChange={inputInfo}
+      />
+      <FormInput
+        name={infoName.deadline}
+        label={infoLabel.deadline}
+        maxLength="55"
+        value={deadline}
+        onChange={inputInfo}
+      />
+      <FormInput
+        name={infoName.payment}
+        label={infoLabel.payment}
+        maxLength="55"
+        value={payment}
+        onChange={inputInfo}
+      />
+    </>
+  );
+}
 
 Info.propTypes = {
   info: PropTypes.shape({

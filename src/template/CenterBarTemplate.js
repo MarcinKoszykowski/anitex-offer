@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import colors from 'styled/colors';
+import { colorWithOpacity, white, grey, red } from 'styled/colors';
 import Button from 'components/atoms/Button';
 import closeIcon from 'assets/icons/close.svg';
 import CenterFormTemplate from 'template/CenterFormTemplate';
-import animations from 'styled/animations';
+import { centerBarOnAnimation, centerBarOffAnimation } from 'styled/animations';
 import AppContext from 'context';
 
 const Wrapper = styled.div`
@@ -16,13 +16,12 @@ const Wrapper = styled.div`
   left: 50%;
   width: 650px;
   height: 100px;
-  background-color: ${colors.white};
+  background-color: ${white};
   z-index: 5;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px 5px ${colors.colorWithOpacity(colors.grey, 0.5)};
-  animation: ${({ animation }) =>
-      animation ? animations.centerBarOnAnimation : animations.centerBarOffAnimation}
-    0.5s ease-in-out forwards;
+  box-shadow: 0px 0px 5px 5px ${colorWithOpacity(grey, 0.5)};
+  animation: ${({ animation }) => (animation ? centerBarOnAnimation : centerBarOffAnimation)} 0.5s
+    ease-in-out forwards;
 `;
 
 const CloseButton = styled(Button)`
@@ -41,7 +40,7 @@ function CenetrBarTemplate() {
     centerBarIsVisible && (
       <Wrapper animation={centerBarAnimation}>
         <CenterFormTemplate />
-        <CloseButton onClick={closeCenterBar} icon={closeIcon} buttonColor={colors.red} />
+        <CloseButton onClick={closeCenterBar} icon={closeIcon} buttonColor={red} />
       </Wrapper>
     )
   );

@@ -3,13 +3,13 @@ import AppContext from 'context';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Name from 'components/atoms/Product/Name';
-import functions from 'data/functions';
+import { setMargin, priceFormat } from 'data/functions';
 import Image from 'components/atoms/Product/Image';
 import trashIcon from 'assets/icons/rubbish-bin.svg';
 import editIcon from 'assets/icons/writing.svg';
 import Button from 'components/atoms/Button';
 import Price from 'components/atoms/Product/Price';
-import colors from 'styled/colors';
+import { red, blueDark } from 'styled/colors';
 import { buttonTitle } from 'data/value';
 
 const DeleteButton = styled(Button)`
@@ -32,7 +32,7 @@ const EditButton = styled(DeleteButton)`
 
 const Wrapper = styled.div`
   position: relative;
-  margin-top: ${({ number }) => functions.setMargin(number)};
+  margin-top: ${({ number }) => setMargin(number)};
   margin-left: 5px;
   margin-right: 5px;
   height: 285px;
@@ -46,24 +46,25 @@ const Wrapper = styled.div`
 
 function Product({ item, number }) {
   const { name, price, image } = item;
+  const { product } = buttonTitle;
   const { deleteProduct, login, editProduct } = useContext(AppContext);
 
   return (
     <Wrapper number={number}>
       <Name>{name}</Name>
-      <Price>{functions.priceFormat(price)}</Price>
+      <Price>{priceFormat(price)}</Price>
       <Image src={image} />
       {login && (
         <>
           <DeleteButton
-            title={buttonTitle.product.delete}
+            title={product.delete}
             onClick={() => deleteProduct(number)}
-            buttonColor={colors.red}
+            buttonColor={red}
             icon={trashIcon}
           />
           <EditButton
-            title={buttonTitle.product.edit}
-            buttonColor={colors.blueDark}
+            title={product.edit}
+            buttonColor={blueDark}
             onClick={() => editProduct(number)}
             icon={editIcon}
           />

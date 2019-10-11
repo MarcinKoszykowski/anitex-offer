@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import AppContext from 'context';
 import ReactToPrint from 'react-to-print';
 import styled from 'styled-components';
-import colors from 'styled/colors';
+import { blue, yellow, red, orange, violet, grey } from 'styled/colors';
 import Button from 'components/atoms/Button';
 import loginIcon from 'assets/icons/login.svg';
 import printIcon from 'assets/icons/pdf-file.svg';
@@ -37,58 +37,56 @@ function NavigationButtons() {
     logout,
     setError,
   } = useContext(AppContext);
+  const { login: loginTitle, print, offer, logout: logoutTitle } = buttonTitle;
+  const { load, save } = offer;
+  const { add } = buttonTitle.product;
 
   return (
     <Wrapper>
       <StyledButton
-        title={buttonTitle.login}
+        title={loginTitle}
         disabled={login}
         onClick={() => {
           openCenterBar('login');
           setError(false);
         }}
         icon={loginIcon}
-        buttonColor={colors.blue}
+        buttonColor={blue}
       />
       <ReactToPrint
         onBeforeGetContent={buttonPrintOnClick}
         content={() => reference.current}
         trigger={() => (
-          <StyledButton
-            title={buttonTitle.print}
-            disabled={!login}
-            icon={printIcon}
-            buttonColor={colors.yellow}
-          />
+          <StyledButton title={print} disabled={!login} icon={printIcon} buttonColor={yellow} />
         )}
       />
       <StyledButton
-        title={buttonTitle.product.add}
+        title={add}
         disabled={!login}
         onClick={() => openNewItemBar('product')}
         icon={addIcon}
-        buttonColor={colors.red}
+        buttonColor={red}
       />
       <StyledButton
-        title={buttonTitle.offer.load}
+        title={load}
         disabled={!login}
         onClick={() => openCenterBar('load')}
         icon={exportIcon}
-        buttonColor={colors.orange}
+        buttonColor={orange}
       />
       <StyledButton
-        title={buttonTitle.offer.save}
+        title={save}
         disabled={!login}
         onClick={() => openCenterBar('fileName')}
         icon={saveIcon}
-        buttonColor={colors.violet}
+        buttonColor={violet}
       />
       <LogoutButton
-        title={buttonTitle.logout}
+        title={logoutTitle}
         disabled={!login}
         onClick={logout}
         icon={logouttIcon}
-        buttonColor={colors.grey}
+        buttonColor={grey}
       />
     </Wrapper>
   );

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from 'styled/colors';
+import { greyLight } from 'styled/colors';
 
 const Checkmark = styled.span`
   position: absolute;
@@ -8,7 +8,7 @@ const Checkmark = styled.span`
   left: 0;
   height: 20px;
   width: 20px;
-  background-color: ${colors.greyLight};
+  background-color: ${greyLight};
 
   &:after {
     content: '';

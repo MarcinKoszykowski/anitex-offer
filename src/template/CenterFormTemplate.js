@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import AppContext from 'context';
 import Button from 'components/atoms/Button';
-import colors from 'styled/colors';
+import { green } from 'styled/colors';
 import checkIcon from 'assets/icons/check-mark.svg';
 import Login from 'components/organisms/Form/Login';
 import Save from 'components/organisms/Form/Save';
@@ -78,7 +78,7 @@ function CenterFormTemplate() {
         <Save fileName={fileName} inputFileName={handleInputChangeFileName} />
       )}
       {formType === 'load' && <Load loadOnChange={handleInputChangeLoad} />}
-      <FormButton disabled={disabledCenterFormButton} icon={checkIcon} buttonColor={colors.green} />
+      <FormButton disabled={disabledCenterFormButton} icon={checkIcon} buttonColor={green} />
     </Form>
   );
 }

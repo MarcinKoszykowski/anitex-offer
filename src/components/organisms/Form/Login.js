@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { login } from 'data/value';
 import FormInput from 'components//molecules/FormInput';
 
+const { name, label } = login;
 const Login = ({ password, inputPassword }) => (
   <FormInput
     type="password"
-    name={login.name}
-    label={login.label}
+    name={name}
+    label={label}
     maxLength="20"
     value={password}
     onChange={inputPassword}

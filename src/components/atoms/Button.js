@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import colors from 'styled/colors';
+import { grey } from 'styled/colors';
 
 const Button = styled.button`
   cursor: pointer;
@@ -12,7 +12,7 @@ const Button = styled.button`
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 50% 50%;
-  box-shadow: 0 0 5px 2px ${colors.grey};
+  box-shadow: 0 0 5px 2px ${grey};
   border: 5px solid ${({ buttonColor }) => buttonColor};
   transition: border 0.3s, background-color 0.3s, opacity 0.3s;
 

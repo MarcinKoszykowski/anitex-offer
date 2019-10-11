@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Checkmark from 'components/atoms/Checkmark';
-import colors from 'styled/colors';
+import { white, red, pink } from 'styled/colors';
 
 const CheckboxLabel = styled.label`
   display: block;
@@ -16,7 +16,7 @@ const CheckboxLabel = styled.label`
     top: 4px;
     width: 5px;
     height: 10px;
-    border: solid ${colors.white};
+    border: solid ${white};
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
   }
@@ -29,7 +29,7 @@ const CheckboxLabel = styled.label`
     width: 0;
 
     &:checked ~ ${Checkmark} {
-      background-color: ${colors.red};
+      background-color: ${red};
       &:after {
         display: block;
       }
@@ -37,7 +37,7 @@ const CheckboxLabel = styled.label`
   }
 
   &:hover input ~ ${Checkmark} {
-    background-color: ${colors.pink};
+    background-color: ${pink};
   }
 `;
 

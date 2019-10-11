@@ -71,7 +71,7 @@ const header = {
     phone: 'telefon:',
     email: 'email:',
   },
-  header: {
+  anitex: {
     firm1: 'FHU Anitex',
     firm2: 'Roman Kowalski',
     address1: 'Nowina 11a',

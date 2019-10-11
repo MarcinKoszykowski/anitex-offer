@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import colors from 'styled/colors';
+import { red } from 'styled/colors';
 import { error as errorValue } from 'data/value';
 import ErrorText from 'components/atoms/ErrorText';
 
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   position: absolute;
   top: 140px;
   left: 50%;
-  background-color: ${colors.red};
+  background-color: ${red};
   text-align: center;
   justify-content: center;
   border-radius: 20px;

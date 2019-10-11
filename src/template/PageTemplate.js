@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import AppContext from 'context';
 import styled, { css } from 'styled-components';
 import logoImg from 'assets/images/anitex.png';
-import colors from 'styled/colors';
+import { white, grey } from 'styled/colors';
 import Firm from 'components/organisms/Firm';
 import Info from 'components/organisms/Info';
 import Edit from 'components/molecules/Edit';
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   width: 7in;
   margin: 0 auto;
   text-align: center;
-  background-color: ${colors.white};
+  background-color: ${white};
 
   ${({ print }) =>
     !print &&
@@ -21,8 +21,8 @@ const Wrapper = styled.div`
       &::after {
         position: absolute;
         content: '';
-        background-color: ${colors.white};
-        box-shadow: 0 0 5px 5px ${colors.grey};
+        background-color: ${white};
+        box-shadow: 0 0 5px 5px ${grey};
         border-radius: 15px;
         top: -10px;
         bottom: -10px;
@@ -42,11 +42,12 @@ const FirmWrapper = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-bottom: 1px dashed ${colors.grey};
+  border-bottom: 1px dashed ${grey};
 `;
 
 function PageTemplate() {
   const { print, reference, firm } = useContext(AppContext);
+  const { firm1 } = firm;
 
   return (
     <Wrapper print={print} ref={reference}>
@@ -54,7 +55,7 @@ function PageTemplate() {
       <FirmWrapper>
         <Firm anitex />
         <Firm />
-        <Edit type="firm" value={firm.firm1} />
+        <Edit type="firm" value={firm1} />
       </FirmWrapper>
       <Info />
       <Products />

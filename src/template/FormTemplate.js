@@ -6,7 +6,7 @@ import Firm from 'components/organisms/Form/Firm';
 import Info from 'components/organisms/Form/Info';
 import Product from 'components/organisms/Form/Product';
 import Button from 'components/atoms/Button';
-import colors from 'styled/colors';
+import { green } from 'styled/colors';
 import addIcon from 'assets/icons/add.svg';
 
 const Form = styled.form`
@@ -42,6 +42,9 @@ function FormTemplate() {
     addEditProduct,
   } = useContext(AppContext);
 
+  const { firm1, firm2, address1, address2, nip, phone, email } = firm;
+  const { deadline, delivery, payment } = info;
+
   const [type, setType] = useState({
     firm2: false,
     email: false,
@@ -72,24 +75,24 @@ function FormTemplate() {
   const setEditState = () => {
     if (edit) {
       setType({
-        firm2: !!firm.firm2,
-        email: !!firm.email,
+        firm2: !!firm2,
+        email: !!email,
       });
 
       setFormFirm({
-        firm1: firm.firm1,
-        firm2: firm.firm2,
-        address1: firm.address1,
-        address2: firm.address2,
-        nip: firm.nip,
-        phone: firm.phone,
-        email: firm.email,
+        firm1,
+        firm2,
+        address1,
+        address2,
+        nip,
+        phone,
+        email,
       });
 
       setFormInfo({
-        delivery: info.delivery,
-        deadline: info.deadline,
-        payment: info.payment,
+        delivery,
+        deadline,
+        payment,
       });
     }
 
@@ -167,7 +170,7 @@ function FormTemplate() {
       {formType === 'product' && (
         <Product product={formProduct} inputProduct={handleInputChangeProduct} />
       )}
-      <FormButton icon={addIcon} buttonColor={colors.green} />
+      <FormButton icon={addIcon} buttonColor={green} />
     </Form>
   );
 }

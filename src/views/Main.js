@@ -160,10 +160,11 @@ function Main() {
 
   const loadData = (e, data) => {
     e.preventDefault();
+    const { firm: dataFirm, info: dataInfo, product: dataProduct } = data;
 
-    setFirm(data.firm);
-    setInfo(data.info);
-    setProduct(data.product);
+    setFirm(dataFirm);
+    setInfo(dataInfo);
+    setProduct(dataProduct);
     setEdit(true);
 
     closeCenterBar();
