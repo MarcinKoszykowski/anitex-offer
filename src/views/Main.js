@@ -30,9 +30,9 @@ function Main() {
   const [print, setPrint] = useState(false);
   const [disabledCenterFormButton, setDisabledCenterFormButton] = useState(false);
   const [updateProduct, setUpdateProduct] = useState(false);
-  const [centerBarIsVisible, setCenterBarIsVisible] = useState(false);
+  const [centerBarIsVisibility, setCenterBarIsVisibility] = useState(false);
   const [centerBarAnimation, setCenterBarAnimation] = useState(false);
-  const [newItemBarIsVisible, setNewItemBarIsVisible] = useState(false);
+  const [newItemBarIsVisibility, setNewItemBarIsVisibility] = useState(false);
   const [newItemBarAnimation, setNewItemBarAnimation] = useState(false);
   const [editProductNumber, setEditProductNumber] = useState(null);
   const [productEdit, setProductEdit] = useState(false);
@@ -59,26 +59,26 @@ function Main() {
 
   const openNewItemBar = type => {
     setFormType(type);
-    setNewItemBarIsVisible(true);
+    setNewItemBarIsVisibility(true);
     setNewItemBarAnimation(true);
     setProductEdit(false);
   };
 
   const closeNewItemBar = () => {
     setNewItemBarAnimation(false);
-    setTimeout(() => setNewItemBarIsVisible(false), 400);
+    setTimeout(() => setNewItemBarIsVisibility(false), 400);
   };
 
   const openCenterBar = type => {
     setFormType(type);
-    setCenterBarIsVisible(true);
+    setCenterBarIsVisibility(true);
     setCenterBarAnimation(true);
     setDisabledCenterFormButton(false);
   };
 
   const closeCenterBar = () => {
     setCenterBarAnimation(false);
-    setTimeout(() => setCenterBarIsVisible(false), 500);
+    setTimeout(() => setCenterBarIsVisibility(false), 500);
   };
 
   const addFirm = (e, newItem) => {
@@ -108,7 +108,7 @@ function Main() {
     setEditProductNumber(number);
     setProductEdit(true);
     setFormType('product');
-    setNewItemBarIsVisible(true);
+    setNewItemBarIsVisibility(true);
     setNewItemBarAnimation(true);
   };
 
@@ -190,7 +190,7 @@ function Main() {
     info,
     product,
     formType,
-    newItemBarIsVisible,
+    newItemBarIsVisibility,
     print,
     closeNewItemBar,
     openNewItemBar,
@@ -202,7 +202,7 @@ function Main() {
     reference,
     buttonPrintOnClick,
     saveData,
-    centerBarIsVisible,
+    centerBarIsVisibility,
     openCenterBar,
     closeCenterBar,
     login,

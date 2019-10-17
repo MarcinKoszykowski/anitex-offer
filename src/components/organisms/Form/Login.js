@@ -5,14 +5,7 @@ import FormInput from 'components//molecules/FormInput';
 
 const { name, label } = login;
 const Login = ({ password, inputPassword }) => (
-  <FormInput
-    type="password"
-    name={name}
-    label={label}
-    maxLength="20"
-    value={password}
-    onChange={inputPassword}
-  />
+  <FormInput type="password" name={name} label={label} maxLength="20" value={password} onChange={inputPassword} />
 );
 
 Login.propTypes = {

@@ -29,8 +29,8 @@ const FormButton = styled(Button)`
 
 function FormTemplate() {
   const {
-    firm,
-    info,
+    firm: { firm1, firm2, address1, address2, nip, phone, email },
+    info: { deadline, delivery, payment },
     product,
     formType,
     addFirm,
@@ -41,9 +41,6 @@ function FormTemplate() {
     productEdit,
     addEditProduct,
   } = useContext(AppContext);
-
-  const { firm1, firm2, address1, address2, nip, phone, email } = firm;
-  const { deadline, delivery, payment } = info;
 
   const [type, setType] = useState({
     firm2: false,
@@ -158,6 +155,7 @@ function FormTemplate() {
       addProduct(e, formProduct);
     }
   };
+
   return (
     <Form autoComplete="off" onSubmit={e => formOnSubmit(e)}>
       {formType === 'firm' && (
@@ -167,9 +165,7 @@ function FormTemplate() {
         </>
       )}
       {formType === 'info' && <Info info={formInfo} inputInfo={handleInputChangeInfo} />}
-      {formType === 'product' && (
-        <Product product={formProduct} inputProduct={handleInputChangeProduct} />
-      )}
+      {formType === 'product' && <Product product={formProduct} inputProduct={handleInputChangeProduct} />}
       <FormButton icon={addIcon} buttonColor={green} />
     </Form>
   );

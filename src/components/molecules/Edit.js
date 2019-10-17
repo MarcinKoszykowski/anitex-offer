@@ -23,9 +23,7 @@ function Edit({ info, type, value }) {
   const { openNewItemBar, login, print } = useContext(AppContext);
   return (
     <StyledButton
-      title={`${value ? `Edytuj ` : `Wprowadź `}informację o ${
-        info ? `dostawie i płatności` : `firmie`
-      }`}
+      title={`${value ? `Edytuj ` : `Wprowadź `}informację o ${info ? `dostawie i płatności` : `firmie`}`}
       disabled={!login}
       print={print}
       onClick={() => openNewItemBar(type)}

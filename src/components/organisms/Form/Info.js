@@ -5,32 +5,16 @@ import FormInput from 'components/molecules/FormInput';
 
 function Info({ info, inputInfo }) {
   const { delivery, deadline, payment } = info;
-  const { info: infoName } = form.name;
-  const { info: infoLabel } = form.label;
+  const {
+    name: { info: infoName },
+    label: { info: infoLabel },
+  } = form;
 
   return (
     <>
-      <FormInput
-        name={infoName.delivery}
-        label={infoLabel.delivery}
-        maxLength="55"
-        value={delivery}
-        onChange={inputInfo}
-      />
-      <FormInput
-        name={infoName.deadline}
-        label={infoLabel.deadline}
-        maxLength="55"
-        value={deadline}
-        onChange={inputInfo}
-      />
-      <FormInput
-        name={infoName.payment}
-        label={infoLabel.payment}
-        maxLength="55"
-        value={payment}
-        onChange={inputInfo}
-      />
+      <FormInput name={infoName.delivery} label={infoLabel.delivery} maxLength="55" value={delivery} onChange={inputInfo} />
+      <FormInput name={infoName.deadline} label={infoLabel.deadline} maxLength="55" value={deadline} onChange={inputInfo} />
+      <FormInput name={infoName.payment} label={infoLabel.payment} maxLength="55" value={payment} onChange={inputInfo} />
     </>
   );
 }

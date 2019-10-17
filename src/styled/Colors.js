@@ -12,18 +12,4 @@ const violet = 'hsl(290, 100%, 50%)';
 const green = 'hsl(120, 100%, 50%)';
 const colorWithOpacity = (color, opacity) => `hsla(${color.replace(/hsl|[()]/g, '')}, ${opacity})`;
 
-export {
-  white,
-  black,
-  grey,
-  greyLight,
-  blue,
-  blueDark,
-  red,
-  pink,
-  orange,
-  yellow,
-  violet,
-  green,
-  colorWithOpacity,
-};
+export { white, black, grey, greyLight, blue, blueDark, red, pink, orange, yellow, violet, green, colorWithOpacity };

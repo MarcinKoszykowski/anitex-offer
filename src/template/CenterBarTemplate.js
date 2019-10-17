@@ -20,8 +20,7 @@ const Wrapper = styled.div`
   z-index: 5;
   border-radius: 10px;
   box-shadow: 0px 0px 5px 5px ${colorWithOpacity(grey, 0.5)};
-  animation: ${({ animation }) => (animation ? centerBarOnAnimation : centerBarOffAnimation)} 0.5s
-    ease-in-out forwards;
+  animation: ${({ animation }) => (animation ? centerBarOnAnimation : centerBarOffAnimation)} 0.5s ease-in-out forwards;
 `;
 
 const CloseButton = styled(Button)`
@@ -34,10 +33,10 @@ const CloseButton = styled(Button)`
 `;
 
 function CenetrBarTemplate() {
-  const { centerBarIsVisible, closeCenterBar, centerBarAnimation } = useContext(AppContext);
+  const { centerBarIsVisibility, closeCenterBar, centerBarAnimation } = useContext(AppContext);
 
   return (
-    centerBarIsVisible && (
+    centerBarIsVisibility && (
       <Wrapper animation={centerBarAnimation}>
         <CenterFormTemplate />
         <CloseButton onClick={closeCenterBar} icon={closeIcon} buttonColor={red} />

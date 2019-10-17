@@ -28,18 +28,14 @@ const LogoutButton = styled(StyledButton)`
 `;
 
 function NavigationButtons() {
+  const { login, buttonPrintOnClick, openNewItemBar, reference, openCenterBar, logout, setError } = useContext(AppContext);
   const {
-    login,
-    buttonPrintOnClick,
-    openNewItemBar,
-    reference,
-    openCenterBar,
-    logout,
-    setError,
-  } = useContext(AppContext);
-  const { login: loginTitle, print, offer, logout: logoutTitle } = buttonTitle;
-  const { load, save } = offer;
-  const { add } = buttonTitle.product;
+    login: loginTitle,
+    print,
+    offer: { load, save },
+    logout: logoutTitle,
+    product: { add },
+  } = buttonTitle;
 
   return (
     <Wrapper>
@@ -56,38 +52,12 @@ function NavigationButtons() {
       <ReactToPrint
         onBeforeGetContent={buttonPrintOnClick}
         content={() => reference.current}
-        trigger={() => (
-          <StyledButton title={print} disabled={!login} icon={printIcon} buttonColor={yellow} />
-        )}
+        trigger={() => <StyledButton title={print} disabled={!login} icon={printIcon} buttonColor={yellow} />}
       />
-      <StyledButton
-        title={add}
-        disabled={!login}
-        onClick={() => openNewItemBar('product')}
-        icon={addIcon}
-        buttonColor={red}
-      />
-      <StyledButton
-        title={load}
-        disabled={!login}
-        onClick={() => openCenterBar('load')}
-        icon={exportIcon}
-        buttonColor={orange}
-      />
-      <StyledButton
-        title={save}
-        disabled={!login}
-        onClick={() => openCenterBar('fileName')}
-        icon={saveIcon}
-        buttonColor={violet}
-      />
-      <LogoutButton
-        title={logoutTitle}
-        disabled={!login}
-        onClick={logout}
-        icon={logouttIcon}
-        buttonColor={grey}
-      />
+      <StyledButton title={add} disabled={!login} onClick={() => openNewItemBar('product')} icon={addIcon} buttonColor={red} />
+      <StyledButton title={load} disabled={!login} onClick={() => openCenterBar('load')} icon={exportIcon} buttonColor={orange} />
+      <StyledButton title={save} disabled={!login} onClick={() => openCenterBar('fileName')} icon={saveIcon} buttonColor={violet} />
+      <LogoutButton title={logoutTitle} disabled={!login} onClick={logout} icon={logouttIcon} buttonColor={grey} />
     </Wrapper>
   );
 }

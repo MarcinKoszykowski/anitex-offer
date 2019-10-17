@@ -6,7 +6,7 @@ import Name from 'components/atoms/Firm/Name';
 import SecondName from 'components/atoms/Firm/SecondName';
 import Text from 'components/molecules/Text';
 import { header } from 'data/value';
-import { phoneFormat } from 'data/functions';
+import { getPhone } from 'data/functions';
 
 const Wrapper = styled.div`
   position: relative;
@@ -17,8 +17,9 @@ const Wrapper = styled.div`
 const Address = styled(SecondName)``;
 
 function Firm({ anitex }) {
-  const { firm } = useContext(AppContext);
-  const { firm1, firm2, address1, address2, nip, phone, email } = firm;
+  const {
+    firm: { firm1, firm2, address1, address2, nip, phone, email },
+  } = useContext(AppContext);
   const { anitex: headerAnitex, firm: headerFirm } = header;
 
   return (
@@ -30,10 +31,8 @@ function Firm({ anitex }) {
         <Address>{anitex ? headerAnitex.address2 : address2}</Address>
       </Wrapper>
       <Text index={headerFirm.nip} text={anitex ? headerAnitex.nip : nip} />
-      <Text index={headerFirm.phone} text={phoneFormat(anitex ? headerAnitex.phone : phone)} />
-      {(anitex || email) && (
-        <Text index={headerFirm.email} text={anitex ? headerAnitex.email : email} />
-      )}
+      <Text index={headerFirm.phone} text={getPhone(anitex ? headerAnitex.phone : phone)} />
+      {(anitex || email) && <Text index={headerFirm.email} text={anitex ? headerAnitex.email : email} />}
     </Wrapper>
   );
 }

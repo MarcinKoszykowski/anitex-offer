@@ -18,8 +18,7 @@ const Wrapper = styled.div`
   z-index: 5;
   padding: ${({ formType }) => (formType === 'firm' ? `100px 50px 0px` : `200px 25px 0px`)};
   box-shadow: -10px 0px 10px 1px ${colorWithOpacity(grey, 0.5)};
-  animation: ${({ animation }) => (animation ? newItemBarOnAnimation : newItemBarOffAnimation)} 0.4s
-    ease-in-out forwards;
+  animation: ${({ animation }) => (animation ? newItemBarOnAnimation : newItemBarOffAnimation)} 0.4s ease-in-out forwards;
 `;
 
 const CloseButton = styled(Button)`
@@ -31,12 +30,10 @@ const CloseButton = styled(Button)`
 `;
 
 function NewItemBarTemplate() {
-  const { newItemBarIsVisible, formType, closeNewItemBar, newItemBarAnimation } = useContext(
-    AppContext,
-  );
+  const { newItemBarIsVisibility, formType, closeNewItemBar, newItemBarAnimation } = useContext(AppContext);
 
   return (
-    newItemBarIsVisible && (
+    newItemBarIsVisibility && (
       <Wrapper animation={newItemBarAnimation} formType={formType}>
         <FormTemplate />
         <CloseButton onClick={closeNewItemBar} icon={closeIcon} buttonColor={red} />

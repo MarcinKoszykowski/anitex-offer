@@ -17,9 +17,4 @@ const newItemBarOffAnimation = keyframes`
     100% {transform: translateX(100%)}
 `;
 
-export {
-  centerBarOnAnimation,
-  centerBarOffAnimation,
-  newItemBarOnAnimation,
-  newItemBarOffAnimation,
-};
+export { centerBarOnAnimation, centerBarOffAnimation, newItemBarOnAnimation, newItemBarOffAnimation };

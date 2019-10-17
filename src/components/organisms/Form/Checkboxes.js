@@ -14,7 +14,9 @@ const Wrapper = styled.div`
 
 function Checkboxes({ type, checkboxOnClick }) {
   const { firm2, email } = type;
-  const { checkbox } = form.label;
+  const {
+    label: { checkbox },
+  } = form;
 
   return (
     <Wrapper>

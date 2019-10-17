@@ -16,11 +16,7 @@ function Products() {
   return (
     <Wrapper>
       {product.map(item => (
-        <Product
-          number={product.findIndex(index => index.name === item.name)}
-          key={item.name}
-          item={item}
-        />
+        <Product number={product.findIndex(index => index.name === item.name)} key={item.name} {...item} />
       ))}
     </Wrapper>
   );

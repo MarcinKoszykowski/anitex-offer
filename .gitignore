@@ -11,6 +11,7 @@
 # production
 /build
 /src/data/password.js
+/src/data/functions.js
 
 # misc
 .DS_Store

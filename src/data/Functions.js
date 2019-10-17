@@ -1,7 +1,6 @@
-const phoneFormat = phone =>
-  `+48 ${phone.substring(0, 3)} ${phone.substring(3, 6)} ${phone.substring(6, 9)}`;
-const priceFormat = price => `${price}zł - NETTO`;
-const setMargin = number => {
+const getPhone = phone => `+48 ${phone.substring(0, 3)} ${phone.substring(3, 6)} ${phone.substring(6, 9)}`;
+const getPrice = price => `${price}zł - NETTO`;
+const getMargin = number => {
   if (number < 4) {
     return `30px`;
   }
@@ -11,4 +10,4 @@ const setMargin = number => {
   return `40px`;
 };
 
-export { phoneFormat, priceFormat, setMargin };
+export { getPhone, getPrice, getMargin };

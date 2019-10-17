@@ -14,8 +14,9 @@ const Wrapper = styled.div`
 `;
 
 function Info() {
-  const { info } = useContext(AppContext);
-  const { delivery, deadline, payment } = info;
+  const {
+    info: { delivery, deadline, payment },
+  } = useContext(AppContext);
   const { delivery: deliveryValue, deadline: deadlineValue, payment: paymentValue } = infoValue;
 
   return (

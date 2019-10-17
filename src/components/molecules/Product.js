@@ -3,7 +3,7 @@ import AppContext from 'context';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Name from 'components/atoms/Product/Name';
-import { setMargin, priceFormat } from 'data/functions';
+import { getMargin, getPrice } from 'data/functions';
 import Image from 'components/atoms/Product/Image';
 import trashIcon from 'assets/icons/rubbish-bin.svg';
 import editIcon from 'assets/icons/writing.svg';
@@ -32,7 +32,7 @@ const EditButton = styled(DeleteButton)`
 
 const Wrapper = styled.div`
   position: relative;
-  margin-top: ${({ number }) => setMargin(number)};
+  margin-top: ${({ number }) => getMargin(number)};
   margin-left: 5px;
   margin-right: 5px;
   height: 285px;
@@ -44,30 +44,21 @@ const Wrapper = styled.div`
   }
 `;
 
-function Product({ item, number }) {
-  const { name, price, image } = item;
-  const { product } = buttonTitle;
+function Product({ name, price, image, number }) {
   const { deleteProduct, login, editProduct } = useContext(AppContext);
+  const {
+    product: { edit: editTitle, delete: deleteTitle },
+  } = buttonTitle;
 
   return (
     <Wrapper number={number}>
       <Name>{name}</Name>
-      <Price>{priceFormat(price)}</Price>
+      <Price>{getPrice(price)}</Price>
       <Image src={image} />
       {login && (
         <>
-          <DeleteButton
-            title={product.delete}
-            onClick={() => deleteProduct(number)}
-            buttonColor={red}
-            icon={trashIcon}
-          />
-          <EditButton
-            title={product.edit}
-            buttonColor={blueDark}
-            onClick={() => editProduct(number)}
-            icon={editIcon}
-          />
+          <DeleteButton title={deleteTitle} onClick={() => deleteProduct(number)} buttonColor={red} icon={trashIcon} />
+          <EditButton title={editTitle} buttonColor={blueDark} onClick={() => editProduct(number)} icon={editIcon} />
         </>
       )}
     </Wrapper>
@@ -75,11 +66,9 @@ function Product({ item, number }) {
 }
 
 Product.propTypes = {
-  item: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   number: PropTypes.number.isRequired,
 };
 
