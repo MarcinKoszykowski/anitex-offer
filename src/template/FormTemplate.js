@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import AppContext from 'context';
 import styled from 'styled-components';
-import Checkboxes from 'components/organisms/Form/Checkboxes';
-import Firm from 'components/organisms/Form/Firm';
-import Info from 'components/organisms/Form/Info';
-import Product from 'components/organisms/Form/Product';
-import Button from 'components/atoms/Button';
+import Firm from 'components/Form/organisms/Firm';
+import Info from 'components/Form/organisms/Info';
+import Product from 'components/Form/organisms/Product';
+import Button from 'components/Button';
 import { green } from 'styled/colors';
 import addIcon from 'assets/icons/add.svg';
+import Checkbox from 'template/CheckboxTemplate';
 
 const Form = styled.form`
   margin: 0 50px;
@@ -160,7 +160,7 @@ function FormTemplate() {
     <Form autoComplete="off" onSubmit={e => formOnSubmit(e)}>
       {formType === 'firm' && (
         <>
-          <Checkboxes type={type} checkboxOnClick={handleCheckboxOnClick} />
+          <Checkbox type={type} checkboxOnClick={handleCheckboxOnClick} />
           <Firm type={type} firm={formFirm} inputFirm={handleInputChangeFirm} />
         </>
       )}

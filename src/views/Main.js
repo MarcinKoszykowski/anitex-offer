@@ -4,10 +4,10 @@ import AppContext from 'context';
 import NewItemBarTemplate from 'template/NewItemBarTemplate';
 import CenterBarTemplate from 'template/CenterBarTemplate';
 import PageTemplate from 'template/PageTemplate';
-import Navigation from 'components/organisms/Navigation';
-import Error from 'components/molecules/Error';
+import Navigation from 'template/NavigationTemplate';
+import Error from 'components/Error/Error';
 import password from 'data/password';
-import Firefox from 'components/molecules/Firefox';
+import Firefox from 'components/Error/Firefox';
 
 const Wrapper = styled.div`
   position: relative;

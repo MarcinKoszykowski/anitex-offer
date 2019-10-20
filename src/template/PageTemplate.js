@@ -3,10 +3,10 @@ import AppContext from 'context';
 import styled, { css } from 'styled-components';
 import logoImg from 'assets/images/anitex.png';
 import { white, grey } from 'styled/colors';
-import Firm from 'components/organisms/Firm';
-import Info from 'components/organisms/Info';
-import Edit from 'components/molecules/Edit';
-import Products from 'components/organisms/Products';
+import Info from 'template/InfoTemplate';
+import Product from 'template/ProductTemplate';
+import Firm from 'template/FirmTemplate';
+import Logo from 'components/Logo';
 
 const Wrapper = styled.div`
   position: relative;
@@ -33,32 +33,15 @@ const Wrapper = styled.div`
     `}
 `;
 
-const Logo = styled.img`
-  height: 65px;
-  margin: ${({ print }) => (print ? `40px 0 30px` : `0 0 30px`)};
-`;
-
-const FirmWrapper = styled.div`
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-bottom: 1px dashed ${grey};
-`;
-
 function PageTemplate() {
-  const { print, reference, firm } = useContext(AppContext);
-  const { firm1 } = firm;
+  const { print, reference } = useContext(AppContext);
 
   return (
     <Wrapper print={print} ref={reference}>
       <Logo print={print} src={logoImg} />
-      <FirmWrapper>
-        <Firm anitex />
-        <Firm />
-        <Edit type="firm" value={firm1} />
-      </FirmWrapper>
+      <Firm />
       <Info />
-      <Products />
+      <Product />
     </Wrapper>
   );
 }

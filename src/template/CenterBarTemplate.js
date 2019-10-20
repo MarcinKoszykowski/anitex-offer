@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { colorWithOpacity, white, grey, red } from 'styled/colors';
-import Button from 'components/atoms/Button';
+import Button from 'components/Button';
 import closeIcon from 'assets/icons/close.svg';
 import CenterFormTemplate from 'template/CenterFormTemplate';
 import { centerBarOnAnimation, centerBarOffAnimation } from 'styled/animations';

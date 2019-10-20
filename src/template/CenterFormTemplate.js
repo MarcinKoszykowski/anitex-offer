@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import AppContext from 'context';
-import Button from 'components/atoms/Button';
+import Button from 'components/Button';
 import { green } from 'styled/colors';
 import checkIcon from 'assets/icons/check-mark.svg';
-import Login from 'components/organisms/Form/Login';
-import Save from 'components/organisms/Form/Save';
-import Load from 'components/organisms/Form/Load';
+import Login from 'components/Form/organisms/Login';
+import Save from 'components/Form/organisms/Save';
+import Load from 'components/Form/organisms/Load';
 
 const Form = styled.form`
   display: grid;
@@ -25,14 +25,7 @@ const FormButton = styled(Button)`
 `;
 
 function CenterFormTemplate() {
-  const {
-    formType,
-    saveData,
-    checkPassword,
-    loadData,
-    disabledCenterFormButton,
-    setDisabledCenterFormButton,
-  } = useContext(AppContext);
+  const { formType, saveData, checkPassword, loadData, disabledCenterFormButton, setDisabledCenterFormButton } = useContext(AppContext);
 
   const [password, setPassword] = useState('');
   const [fileName, setFileName] = useState('');
@@ -71,12 +64,8 @@ function CenterFormTemplate() {
   };
   return (
     <Form autoComplete="off" onSubmit={e => formOnSubmit(e)}>
-      {formType === 'login' && (
-        <Login password={password} inputPassword={handleInputChangePassword} />
-      )}
-      {formType === 'fileName' && (
-        <Save fileName={fileName} inputFileName={handleInputChangeFileName} />
-      )}
+      {formType === 'login' && <Login password={password} inputPassword={handleInputChangePassword} />}
+      {formType === 'fileName' && <Save fileName={fileName} inputFileName={handleInputChangeFileName} />}
       {formType === 'load' && <Load loadOnChange={handleInputChangeLoad} />}
       <FormButton disabled={disabledCenterFormButton} icon={checkIcon} buttonColor={green} />
     </Form>

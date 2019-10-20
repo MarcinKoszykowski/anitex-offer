@@ -65,21 +65,20 @@ const form = {
   },
 };
 
-const header = {
-  firm: {
-    nip: 'nip:',
-    phone: 'telefon:',
-    email: 'email:',
-  },
-  anitex: {
-    firm1: 'FHU Anitex',
-    firm2: 'Roman Kowalski',
-    address1: 'Nowina 11a',
-    address2: '82-310 Elbląg',
-    nip: '578-117-77-98',
-    phone: '609541230',
-    email: 'fhuanitex@wp.pl',
-  },
+const firm = {
+  nip: 'nip:',
+  phone: 'telefon:',
+  email: 'email:',
+};
+
+const anitex = {
+  firm1: 'FHU Anitex',
+  firm2: 'Roman Kowalski',
+  address1: 'Nowina 11a',
+  address2: '82-310 Elbląg',
+  nip: '578-117-77-98',
+  phone: '609541230',
+  email: 'fhuanitex@wp.pl',
 };
 
 const login = {
@@ -111,4 +110,4 @@ const buttonTitle = {
   logout: 'Wyloguj',
 };
 
-export { load, buttonTitle, firefox, info, error, form, header, login, save };
+export { load, buttonTitle, firefox, info, error, form, firm, anitex, login, save };
