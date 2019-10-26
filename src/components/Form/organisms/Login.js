@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { login } from 'data/value';
-import FormInput from 'components/Form/molecules/FormInput';
+import FormInput from '../molecules/FormInput';
 
 const { name, label } = login;
 const Login = ({ password, inputPassword }) => (

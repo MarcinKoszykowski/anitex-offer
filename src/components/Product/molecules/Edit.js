@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import AppContext from 'context';
 import PropTypes from 'prop-types';
-import trashIcon from 'assets/icons/rubbish-bin.svg';
-import editIcon from 'assets/icons/writing.svg';
 import { red, blueDark } from 'styled/colors';
 import { buttonTitle } from 'data/value';
-import DeleteButton from 'components/Product/atoms/DeleteButton';
-import EditButton from 'components/Product/atoms/EditButton';
+import trashIcon from 'assets/icons/rubbish-bin.svg';
+import editIcon from 'assets/icons/writing.svg';
+import DeleteButton from '../atoms/DeleteButton';
+import EditButton from '../atoms/EditButton';
 
 function Edit({ number }) {
   const { deleteProduct, login, editProduct } = useContext(AppContext);

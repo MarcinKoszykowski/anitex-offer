@@ -1,13 +1,13 @@
 import React, { useState, useEffect, createRef, useCallback } from 'react';
 import styled from 'styled-components';
 import AppContext from 'context';
+import password from 'data/password';
+import Firefox from 'components/Error/Firefox';
+import Error from 'components/Error/Error';
 import NewItemBarTemplate from 'template/NewItemBarTemplate';
 import CenterBarTemplate from 'template/CenterBarTemplate';
 import PageTemplate from 'template/PageTemplate';
 import Navigation from 'template/NavigationTemplate';
-import Error from 'components/Error/Error';
-import password from 'data/password';
-import Firefox from 'components/Error/Firefox';
 
 const Wrapper = styled.div`
   position: relative;
@@ -54,8 +54,6 @@ function Main() {
 
   const [product, setProduct] = useState([]);
   const [formType, setFormType] = useState('');
-
-  const isFirefox = typeof InstallTrigger !== 'undefined';
 
   const openNewItemBar = type => {
     setFormType(type);
@@ -237,7 +235,7 @@ function Main() {
         <NewItemBarTemplate />
         <CenterBarTemplate />
         <Error error={error} />
-        {!isFirefox && <Firefox />}
+        <Firefox />
       </Wrapper>
     </AppContext.Provider>
   );

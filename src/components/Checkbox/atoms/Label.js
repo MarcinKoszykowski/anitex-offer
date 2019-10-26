@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Checkmark from 'components/Checkbox/atoms/Checkmark';
 import { white, red, pink } from 'styled/colors';
+import Checkmark from './Checkmark';
 
 const Label = styled.label`
   display: block;

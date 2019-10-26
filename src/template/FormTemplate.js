@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import AppContext from 'context';
 import styled from 'styled-components';
+import { green } from 'styled/colors';
+import addIcon from 'assets/icons/add.svg';
 import Firm from 'components/Form/organisms/Firm';
 import Info from 'components/Form/organisms/Info';
 import Product from 'components/Form/organisms/Product';
 import Button from 'components/Button';
-import { green } from 'styled/colors';
-import addIcon from 'assets/icons/add.svg';
-import Checkbox from 'template/CheckboxTemplate';
+import Checkbox from './CheckboxTemplate';
 
 const Form = styled.form`
   margin: 0 50px;

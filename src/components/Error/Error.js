@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { red } from 'styled/colors';
 import { error as errorValue } from 'data/value';
-import Text from 'components/Error/atoms/Text';
+import Text from './atoms/Text';
 
 const Wrapper = styled.div`
   position: absolute;

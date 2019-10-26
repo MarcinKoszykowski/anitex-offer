@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { colorWithOpacity, white, grey, red } from 'styled/colors';
-import Button from 'components/Button';
-import closeIcon from 'assets/icons/close.svg';
-import CenterFormTemplate from 'template/CenterFormTemplate';
-import { centerBarOnAnimation, centerBarOffAnimation } from 'styled/animations';
 import AppContext from 'context';
+import { colorWithOpacity, white, grey, red } from 'styled/colors';
+import { centerBarOnAnimation, centerBarOffAnimation } from 'styled/animations';
+import closeIcon from 'assets/icons/close.svg';
+import Button from 'components/Button';
+import CenterFormTemplate from './CenterFormTemplate';
 
 const Wrapper = styled.div`
   position: fixed;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import DeleteButton from 'components/Product/atoms/DeleteButton';
+import DeleteButton from './DeleteButton';
 
 const EditButton = styled(DeleteButton)`
   top: 60%;

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import Text from 'components/Text/Text';
+import AppContext from 'context';
 import { info as infoValue } from 'data/value';
 import { grey } from 'styled/colors';
+import Text from 'components/Text/Text';
 import Edit from 'components/Edit/Edit';
-import AppContext from 'context';
 
 const Wrapper = styled.div`
   position: relative;

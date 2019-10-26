@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import AppContext from 'context';
 import styled from 'styled-components';
-import Button from 'components/Button';
+import AppContext from 'context';
+import { blueDark, red } from 'styled/colors';
 import addIcon from 'assets/icons/add.svg';
 import editIcon from 'assets/icons/writing.svg';
-import { blueDark, red } from 'styled/colors';
+import Button from 'components/Button';
 
 const StyledButton = styled(Button)`
   display: ${({ print }) => (print ? `none` : null)};

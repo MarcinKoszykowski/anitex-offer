@@ -2,15 +2,15 @@ import React, { useContext } from 'react';
 import AppContext from 'context';
 import ReactToPrint from 'react-to-print';
 import styled from 'styled-components';
+import { buttonTitle } from 'data/value';
 import { blue, yellow, red, orange, violet, grey } from 'styled/colors';
-import Button from 'components/Navigation/atoms/Button';
 import loginIcon from 'assets/icons/login.svg';
 import printIcon from 'assets/icons/pdf-file.svg';
 import addIcon from 'assets/icons/add.svg';
 import saveIcon from 'assets/icons/save-file-option.svg';
 import exportIcon from 'assets/icons/export.svg';
 import logouttIcon from 'assets/icons/logout.svg';
-import { buttonTitle } from 'data/value';
+import Button from './atoms/Button';
 
 const Wrapper = styled.div`
   position: fixed;

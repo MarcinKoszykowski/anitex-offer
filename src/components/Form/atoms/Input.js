@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Bar from 'components/Form/atoms/Bar';
-import Label from 'components/Form/atoms/Label';
 import { blueDark } from 'styled/colors';
+import Bar from './Bar';
+import Label from './Label';
 
 const Input = styled.input`
   border: none;

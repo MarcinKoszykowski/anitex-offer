@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import AppContext from 'context';
+import { grey } from 'styled/colors';
 import Firm from 'components/Firm/Firm';
 import Edit from 'components/Edit/Edit';
-import { grey } from 'styled/colors';
 
 const Wrapper = styled.div`
   position: relative;

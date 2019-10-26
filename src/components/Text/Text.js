@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import Index from 'components/Text/atoms/Index';
+import Index from './atoms/Index';
 
 const Wrapper = styled.div`
   display: grid;

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Name from 'components/Product/atoms/Name';
 import { getMargin, getPrice } from 'data/functions';
-import Image from 'components/Product/atoms/Image';
-import Price from 'components/Product/atoms/Price';
-import Edit from 'components/Product/molecules/Edit';
-import DeleteButton from 'components/Product/atoms/DeleteButton';
+import Name from './atoms/Name';
+import Image from './atoms/Image';
+import Price from './atoms/Price';
+import DeleteButton from './atoms/DeleteButton';
+import Edit from './molecules/Edit';
 
 const Wrapper = styled.div`
   position: relative;

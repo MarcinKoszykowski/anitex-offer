@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { red } from 'styled/colors';
 import { firefox } from 'data/value';
-import Text from 'components/Error/atoms/Text';
+import Text from './atoms/Text';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -23,10 +23,13 @@ const StyledText = styled(Text)`
   text-transform: none;
 `;
 
-const Firefox = () => (
-  <Wrapper>
-    <StyledText>{firefox}</StyledText>
-  </Wrapper>
-);
+const isFirefox = typeof InstallTrigger !== 'undefined';
+
+const Firefox = () =>
+  !isFirefox && (
+    <Wrapper>
+      <StyledText>{firefox}</StyledText>
+    </Wrapper>
+  );
 
 export default Firefox;

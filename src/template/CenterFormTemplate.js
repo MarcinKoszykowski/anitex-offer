@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import AppContext from 'context';
-import Button from 'components/Button';
 import { green } from 'styled/colors';
 import checkIcon from 'assets/icons/check-mark.svg';
 import Login from 'components/Form/organisms/Login';
 import Save from 'components/Form/organisms/Save';
 import Load from 'components/Form/organisms/Load';
+import Button from 'components/Button';
 
 const Form = styled.form`
   display: grid;

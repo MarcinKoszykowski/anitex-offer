@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { form } from 'data/value';
-import FormInput from 'components/Form/molecules/FormInput';
+import FormInput from '../molecules/FormInput';
 
 function Info({ info, inputInfo }) {
   const { delivery, deadline, payment } = info;

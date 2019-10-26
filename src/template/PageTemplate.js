@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import AppContext from 'context';
 import styled, { css } from 'styled-components';
-import logoImg from 'assets/images/anitex.png';
 import { white, grey } from 'styled/colors';
-import Info from 'template/InfoTemplate';
-import Product from 'template/ProductTemplate';
-import Firm from 'template/FirmTemplate';
+import logoImg from 'assets/images/anitex.png';
 import Logo from 'components/Logo';
+import Info from './InfoTemplate';
+import Product from './ProductTemplate';
+import Firm from './FirmTemplate';
 
 const Wrapper = styled.div`
   position: relative;

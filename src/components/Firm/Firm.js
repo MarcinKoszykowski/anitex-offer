@@ -6,7 +6,7 @@ import { firm, anitex as anitexFirm } from 'data/value';
 import { getPhone } from 'data/functions';
 import Name from 'components/Firm/atoms/Name';
 import Text from 'components/Text/Text';
-import Address from 'components/Firm/atoms/Address';
+import Address from './atoms/Address';
 
 const Wrapper = styled.div`
   position: relative;

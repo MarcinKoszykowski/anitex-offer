@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { save } from 'data/value';
-import FormInput from 'components/Form/molecules/FormInput';
+import FormInput from '../molecules/FormInput';
 
 const { name, label } = save;
 const Save = ({ fileName, inputFileName }) => (
