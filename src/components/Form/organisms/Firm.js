@@ -4,7 +4,7 @@ import FormContext from 'context/FormContext';
 import { form } from 'data/value';
 import FormInput from '../molecules/FormInput';
 
-function Firm({ firm, inputFirm }) {
+const Firm = ({ firm, inputFirm }) => {
   const { type } = useContext(FormContext);
   const { firm1, firm2, address1, address2, nip, phone, email } = firm;
   const {
@@ -24,7 +24,7 @@ function Firm({ firm, inputFirm }) {
       {type.email && <FormInput type="email" name={firmName.email} label={firmLabel.email} maxLength="30" value={email} onChange={inputFirm} />}
     </>
   );
-}
+};
 
 Firm.propTypes = {
   type: PropTypes.shape({

@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   border-bottom: 1px dashed ${grey};
 `;
 
-function FirmTemplate() {
+const FirmTemplate = () => {
   const {
     firm: { firm1 },
   } = useContext(FirmContext);
@@ -24,6 +24,6 @@ function FirmTemplate() {
       <Edit type="firm" value={firm1} />
     </Wrapper>
   );
-}
+};
 
 export default FirmTemplate;

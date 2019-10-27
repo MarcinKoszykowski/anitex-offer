@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr 1fr;
 `;
 
-function ProductTemplate() {
+const ProductTemplate = () => {
   const { product } = useContext(ProductContext);
 
   return (
@@ -20,6 +20,6 @@ function ProductTemplate() {
       ))}
     </Wrapper>
   );
-}
+};
 
 export default ProductTemplate;

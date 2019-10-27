@@ -33,7 +33,7 @@ const CloseButton = styled(Button)`
   border-width: 3px;
 `;
 
-function CenetrBarTemplate() {
+const CenetrBarTemplate = () => {
   const { closeCenterBar } = useContext(AppContext);
   const { centerBarIsVisibility, centerBarAnimation } = useContext(BarContext);
 
@@ -45,6 +45,6 @@ function CenetrBarTemplate() {
       </Wrapper>
     )
   );
-}
+};
 
 export default CenetrBarTemplate;

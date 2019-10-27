@@ -30,7 +30,7 @@ const CloseButton = styled(Button)`
   border-width: 3px;
 `;
 
-function NewItemBarTemplate() {
+const NewItemBarTemplate = () => {
   const { formType, closeNewItemBar } = useContext(AppContext);
   const { newItemBarIsVisibility, newItemBarAnimation } = useContext(BarContext);
 
@@ -42,6 +42,6 @@ function NewItemBarTemplate() {
       </Wrapper>
     )
   );
-}
+};
 
 export default NewItemBarTemplate;

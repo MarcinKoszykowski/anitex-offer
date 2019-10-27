@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   grid-template-columns: auto auto;
 `;
 
-function CheckboxTemplate({ checkboxOnClick }) {
+const CheckboxTemplate = ({ checkboxOnClick }) => {
   const { type } = useContext(FormContext);
   const {
     label: { checkbox },
@@ -29,7 +29,7 @@ function CheckboxTemplate({ checkboxOnClick }) {
       </Checkbox>
     </Wrapper>
   );
-}
+};
 
 CheckboxTemplate.propTypes = {
   type: PropTypes.shape({

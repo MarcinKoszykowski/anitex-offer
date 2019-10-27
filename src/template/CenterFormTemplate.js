@@ -25,7 +25,7 @@ const FormButton = styled(Button)`
   border-width: 3px;
 `;
 
-function CenterFormTemplate() {
+const CenterFormTemplate = () => {
   const { formType, saveData, checkPassword, loadData } = useContext(AppContext);
   const { disabledCenterFormButton, setDisabledCenterFormButton } = useContext(BarContext);
 
@@ -72,6 +72,6 @@ function CenterFormTemplate() {
       <FormButton disabled={disabledCenterFormButton} icon={checkIcon} buttonColor={green} />
     </Form>
   );
-}
+};
 
 export default CenterFormTemplate;

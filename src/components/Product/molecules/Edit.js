@@ -8,7 +8,7 @@ import editIcon from 'assets/icons/writing.svg';
 import DeleteButton from '../atoms/DeleteButton';
 import EditButton from '../atoms/EditButton';
 
-function Edit({ number }) {
+const Edit = ({ number }) => {
   const { deleteProduct, login, editProduct } = useContext(AppContext);
   const {
     product: { edit: editTitle, delete: deleteTitle },
@@ -22,7 +22,7 @@ function Edit({ number }) {
       </>
     )
   );
-}
+};
 
 Edit.propTypes = {
   number: PropTypes.number.isRequired,

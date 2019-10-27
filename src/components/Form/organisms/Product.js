@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { form } from 'data/value';
 import FormInput from '../molecules/FormInput';
 
-function Product({ product, inputProduct }) {
+const Product = ({ product, inputProduct }) => {
   const { name, price, image } = product;
   const {
     name: { product: productName },
@@ -16,7 +16,7 @@ function Product({ product, inputProduct }) {
       <FormInput name={productName.image} label={productLabel.image} type="url" value={image} onChange={inputProduct} />
     </>
   );
-}
+};
 
 Product.propTypes = {
   product: PropTypes.shape({

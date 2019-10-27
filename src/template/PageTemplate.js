@@ -33,7 +33,7 @@ const Wrapper = styled.div`
     `}
 `;
 
-function PageTemplate() {
+const PageTemplate = () => {
   const { print, reference } = useContext(AppContext);
 
   return (
@@ -44,6 +44,6 @@ function PageTemplate() {
       <Product />
     </Wrapper>
   );
-}
+};
 
 export default PageTemplate;

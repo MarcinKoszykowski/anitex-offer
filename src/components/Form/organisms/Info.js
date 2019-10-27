@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { form } from 'data/value';
 import FormInput from '../molecules/FormInput';
 
-function Info({ info, inputInfo }) {
+const Info = ({ info, inputInfo }) => {
   const { delivery, deadline, payment } = info;
   const {
     name: { info: infoName },
@@ -17,7 +17,7 @@ function Info({ info, inputInfo }) {
       <FormInput name={infoName.payment} label={infoLabel.payment} maxLength="55" value={payment} onChange={inputInfo} />
     </>
   );
-}
+};
 
 Info.propTypes = {
   info: PropTypes.shape({

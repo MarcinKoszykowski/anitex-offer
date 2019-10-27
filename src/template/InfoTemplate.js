@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   border-bottom: 1px dashed ${grey};
 `;
 
-function InfoTemplate() {
+const InfoTemplate = () => {
   const {
     info: { delivery, deadline, payment },
   } = useContext(InfoContext);
@@ -27,6 +27,6 @@ function InfoTemplate() {
       <Edit info type="info" value={delivery} />
     </Wrapper>
   );
-}
+};
 
 export default InfoTemplate;

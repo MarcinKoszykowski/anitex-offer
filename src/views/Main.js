@@ -25,7 +25,7 @@ const PageWrapper = styled.div`
   width: 7in;
 `;
 
-function Main() {
+const Main = () => {
   const reference = useRef(null);
   const { firm, setFirm } = useContext(FirmContext);
   const { info, setInfo } = useContext(InfoContext);
@@ -220,6 +220,6 @@ function Main() {
       </Wrapper>
     </AppContext.Provider>
   );
-}
+};
 
 export default Main;

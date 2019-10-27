@@ -31,7 +31,7 @@ const FormButton = styled(Button)`
   border-width: 3.5px;
 `;
 
-function FormTemplate() {
+const FormTemplate = () => {
   const {
     firm: { firm1, firm2, address1, address2, nip, phone, email },
   } = useContext(FirmContext);
@@ -126,6 +126,6 @@ function FormTemplate() {
       <FormButton icon={addIcon} buttonColor={green} />
     </Form>
   );
-}
+};
 
 export default FormTemplate;

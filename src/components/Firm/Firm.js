@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   text-align: left;
 `;
 
-function Firm({ anitex }) {
+const Firm = ({ anitex }) => {
   const {
     firm: { firm1, firm2, address1, address2, nip, phone, email },
   } = useContext(FirmContext);
@@ -42,7 +42,7 @@ function Firm({ anitex }) {
       {(anitex || email) && <Text index={firmEmail} text={anitex ? anitexEmail : email} />}
     </Wrapper>
   );
-}
+};
 
 Firm.propTypes = {
   anitex: PropTypes.bool,

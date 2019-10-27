@@ -19,7 +19,7 @@ const StyledButton = styled(Button)`
   z-index: 1;
 `;
 
-function Edit({ info, type, value }) {
+const Edit = ({ info, type, value }) => {
   const { openNewItemBar, login, print } = useContext(AppContext);
   return (
     <StyledButton
@@ -31,7 +31,7 @@ function Edit({ info, type, value }) {
       icon={value ? editIcon : addIcon}
     />
   );
-}
+};
 
 Edit.propTypes = {
   info: PropTypes.bool,

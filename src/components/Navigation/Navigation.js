@@ -23,7 +23,7 @@ const StyledButton = styled(Button)`
   background-size: 55% 55%;
 `;
 
-function Navigation() {
+const Navigation = () => {
   const { login, buttonPrintOnClick, openNewItemBar, reference, openCenterBar, logout, setError } = useContext(AppContext);
   const {
     login: loginTitle,
@@ -56,6 +56,6 @@ function Navigation() {
       <StyledButton title={logoutTitle} disabled={!login} onClick={logout} icon={logouttIcon} buttonColor={grey} />
     </Wrapper>
   );
-}
+};
 
 export default Navigation;
