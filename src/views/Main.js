@@ -56,7 +56,10 @@ const Main = () => {
 
   const closeNewItemBar = () => {
     setNewItemBarAnimation(false);
-    setTimeout(() => setNewItemBarIsVisibility(false), 400);
+    setTimeout(() => {
+      setFormType('');
+      setNewItemBarIsVisibility(false);
+    }, 400);
   };
 
   const openCenterBar = type => {

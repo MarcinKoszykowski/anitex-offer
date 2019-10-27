@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import FormContext from 'context/FormContext';
 import { form } from 'data/value';
 import FormInput from '../molecules/FormInput';
 
-const Firm = ({ firm, inputFirm }) => {
-  const { type } = useContext(FormContext);
+const Firm = ({ type, firm, inputFirm }) => {
   const { firm1, firm2, address1, address2, nip, phone, email } = firm;
   const {
     pattern,

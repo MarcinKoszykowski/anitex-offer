@@ -4,15 +4,12 @@ import Firm from './Firm';
 import Info from './Info';
 import Product from './Product';
 import Bar from './Bar';
-import Form from './Form';
 
 const Main = ({ children }) => (
   <Firm>
     <Info>
       <Product>
-        <Bar>
-          <Form>{children}</Form>
-        </Bar>
+        <Bar>{children}</Bar>
       </Product>
     </Info>
   </Firm>

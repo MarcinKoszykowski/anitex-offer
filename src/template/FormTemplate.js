@@ -1,8 +1,7 @@
-import React, { useEffect, useCallback, useContext } from 'react';
+import React, { useEffect, useCallback, useContext, useState } from 'react';
 import AppContext from 'context/AppContext';
 import FirmContext from 'context/FirmContext';
 import InfoContext from 'context/InfoContext';
-import FormContext from 'context/FormContext';
 import ProductContext from 'context/ProductContext';
 import styled from 'styled-components';
 import { green } from 'styled/colors';
@@ -40,7 +39,33 @@ const FormTemplate = () => {
   } = useContext(InfoContext);
   const { product, productEdit, editProductNumber } = useContext(ProductContext);
   const { formType, addFirm, addInfo, addProduct, edit, addEditProduct } = useContext(AppContext);
-  const { type, setType, formFirm, setFormFirm, formInfo, setFormInfo, formProduct, setFormProduct } = useContext(FormContext);
+
+  const [type, setType] = useState({
+    firm2: false,
+    email: false,
+  });
+
+  const [formFirm, setFormFirm] = useState({
+    firm1: '',
+    firm2: '',
+    address1: '',
+    address2: '',
+    nip: '',
+    phone: '',
+    email: '',
+  });
+
+  const [formInfo, setFormInfo] = useState({
+    delivery: '',
+    deadline: '',
+    payment: '',
+  });
+
+  const [formProduct, setFormProduct] = useState({
+    name: '',
+    price: '',
+    image: '',
+  });
 
   const setEditState = () => {
     if (edit) {
@@ -117,8 +142,8 @@ const FormTemplate = () => {
     <Form autoComplete="off" onSubmit={e => formOnSubmit(e)}>
       {formType === 'firm' && (
         <>
-          <Checkbox checkboxOnClick={handleCheckboxOnClick} />
-          <Firm firm={formFirm} inputFirm={e => handleInputChange(e, formFirm, setFormFirm)} />
+          <Checkbox type={type} checkboxOnClick={handleCheckboxOnClick} />
+          <Firm type={type} firm={formFirm} inputFirm={e => handleInputChange(e, formFirm, setFormFirm)} />
         </>
       )}
       {formType === 'info' && <Info info={formInfo} inputInfo={e => handleInputChange(e, formInfo, setFormInfo)} />}

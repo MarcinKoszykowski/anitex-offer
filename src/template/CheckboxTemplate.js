@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import FormContext from 'context/FormContext';
 import { form } from 'data/value';
 import Checkbox from 'components/Checkbox/Checkbox';
 
@@ -13,8 +12,7 @@ const Wrapper = styled.div`
   grid-template-columns: auto auto;
 `;
 
-const CheckboxTemplate = ({ checkboxOnClick }) => {
-  const { type } = useContext(FormContext);
+const CheckboxTemplate = ({ type, checkboxOnClick }) => {
   const {
     label: { checkbox },
   } = form;
