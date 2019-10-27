@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import AppContext from 'context';
+import FirmContext from 'context/FirmContext';
 import styled from 'styled-components';
 import { firm, anitex as anitexFirm } from 'data/value';
 import { getPhone } from 'data/functions';
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 function Firm({ anitex }) {
   const {
     firm: { firm1, firm2, address1, address2, nip, phone, email },
-  } = useContext(AppContext);
+  } = useContext(FirmContext);
   const {
     firm1: anitexFirm1,
     firm2: anitexFirm2,

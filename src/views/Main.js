@@ -1,6 +1,10 @@
-import React, { useState, useEffect, createRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useContext } from 'react';
 import styled from 'styled-components';
-import AppContext from 'context';
+import AppContext from 'context/AppContext';
+import FirmContext from 'context/FirmContext';
+import InfoContext from 'context/InfoContext';
+import ProductContext from 'context/ProductContext';
+import BarContext from 'context/BarContext';
 import password from 'data/password';
 import Firefox from 'components/Error/Firefox';
 import Error from 'components/Error/Error';
@@ -22,37 +26,25 @@ const PageWrapper = styled.div`
 `;
 
 function Main() {
-  const reference = createRef();
+  const reference = useRef(null);
+  const { firm, setFirm } = useContext(FirmContext);
+  const { info, setInfo } = useContext(InfoContext);
+  const { product, setProduct, editProductNumber, setEditProductNumber, updateProduct, setUpdateProduct, setProductEdit } = useContext(
+    ProductContext,
+  );
+  const {
+    setNewItemBarIsVisibility,
+    setNewItemBarAnimation,
+    setCenterBarIsVisibility,
+    setCenterBarAnimation,
+    setDisabledCenterFormButton,
+  } = useContext(BarContext);
 
   const [edit, setEdit] = useState(false);
   const [error, setError] = useState(false);
   const [login, setLogin] = useState(false);
   const [print, setPrint] = useState(false);
-  const [disabledCenterFormButton, setDisabledCenterFormButton] = useState(false);
-  const [updateProduct, setUpdateProduct] = useState(false);
-  const [centerBarIsVisibility, setCenterBarIsVisibility] = useState(false);
-  const [centerBarAnimation, setCenterBarAnimation] = useState(false);
-  const [newItemBarIsVisibility, setNewItemBarIsVisibility] = useState(false);
-  const [newItemBarAnimation, setNewItemBarAnimation] = useState(false);
-  const [editProductNumber, setEditProductNumber] = useState(null);
-  const [productEdit, setProductEdit] = useState(false);
-  const [firm, setFirm] = useState({
-    firm1: '',
-    firm2: '',
-    address1: '',
-    address2: '',
-    nip: '',
-    phone: '',
-    email: '',
-  });
 
-  const [info, setInfo] = useState({
-    delivery: '',
-    deadline: '',
-    payment: '',
-  });
-
-  const [product, setProduct] = useState([]);
   const [formType, setFormType] = useState('');
 
   const openNewItemBar = type => {
@@ -184,11 +176,7 @@ function Main() {
   const logout = () => setLogin(false);
 
   const contextElement = {
-    firm,
-    info,
-    product,
     formType,
-    newItemBarIsVisibility,
     print,
     closeNewItemBar,
     openNewItemBar,
@@ -200,22 +188,15 @@ function Main() {
     reference,
     buttonPrintOnClick,
     saveData,
-    centerBarIsVisibility,
     openCenterBar,
     closeCenterBar,
     login,
     logout,
     loadData,
     setError,
-    centerBarAnimation,
-    newItemBarAnimation,
     edit,
-    productEdit,
     editProduct,
-    editProductNumber,
     addEditProduct,
-    disabledCenterFormButton,
-    setDisabledCenterFormButton,
   };
 
   const handleUpdateProduct = () => setUpdateProduct(false);

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import FormContext from 'context/FormContext';
 import { form } from 'data/value';
 import Checkbox from 'components/Checkbox/Checkbox';
 
@@ -12,18 +13,18 @@ const Wrapper = styled.div`
   grid-template-columns: auto auto;
 `;
 
-function CheckboxTemplate({ type, checkboxOnClick }) {
-  const { firm2, email } = type;
+function CheckboxTemplate({ checkboxOnClick }) {
+  const { type } = useContext(FormContext);
   const {
     label: { checkbox },
   } = form;
 
   return (
     <Wrapper>
-      <Checkbox checked={firm2} checkboxOnChange={() => checkboxOnClick('firm2')}>
+      <Checkbox checked={type.firm2} checkboxOnChange={() => checkboxOnClick('firm2')}>
         {checkbox.firm}
       </Checkbox>
-      <Checkbox checked={email} checkboxOnChange={() => checkboxOnClick('email')}>
+      <Checkbox checked={type.email} checkboxOnChange={() => checkboxOnClick('email')}>
         {checkbox.email}
       </Checkbox>
     </Wrapper>

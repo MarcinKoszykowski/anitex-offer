@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import AppContext from 'context';
+import FirmContext from 'context/FirmContext';
 import { grey } from 'styled/colors';
 import Firm from 'components/Firm/Firm';
 import Edit from 'components/Edit/Edit';
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 function FirmTemplate() {
   const {
     firm: { firm1 },
-  } = useContext(AppContext);
+  } = useContext(FirmContext);
 
   return (
     <Wrapper>

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import AppContext from 'context';
+import AppContext from 'context/AppContext';
+import BarContext from 'context/BarContext';
 import styled from 'styled-components';
 import { newItemBarOnAnimation, newItemBarOffAnimation } from 'styled/animations';
 import { colorWithOpacity, white, grey, red } from 'styled/colors';
@@ -30,7 +31,8 @@ const CloseButton = styled(Button)`
 `;
 
 function NewItemBarTemplate() {
-  const { newItemBarIsVisibility, formType, closeNewItemBar, newItemBarAnimation } = useContext(AppContext);
+  const { formType, closeNewItemBar } = useContext(AppContext);
+  const { newItemBarIsVisibility, newItemBarAnimation } = useContext(BarContext);
 
   return (
     newItemBarIsVisibility && (

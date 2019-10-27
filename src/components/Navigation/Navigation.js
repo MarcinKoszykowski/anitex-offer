@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import AppContext from 'context';
+import AppContext from 'context/AppContext';
 import ReactToPrint from 'react-to-print';
 import styled from 'styled-components';
 import { buttonTitle } from 'data/value';

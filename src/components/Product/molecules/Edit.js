@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import AppContext from 'context';
+import AppContext from 'context/AppContext';
 import PropTypes from 'prop-types';
 import { red, blueDark } from 'styled/colors';
 import { buttonTitle } from 'data/value';

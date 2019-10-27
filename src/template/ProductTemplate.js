@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import AppContext from 'context';
+import ProductContext from 'context/ProductContext';
 import styled from 'styled-components';
 import Product from 'components/Product/Product';
 
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `;
 
 function ProductTemplate() {
-  const { product } = useContext(AppContext);
+  const { product } = useContext(ProductContext);
 
   return (
     <Wrapper>

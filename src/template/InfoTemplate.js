@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import AppContext from 'context';
+import InfoContext from 'context/InfoContext';
 import { info as infoValue } from 'data/value';
 import { grey } from 'styled/colors';
 import Text from 'components/Text/Text';
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 function InfoTemplate() {
   const {
     info: { delivery, deadline, payment },
-  } = useContext(AppContext);
+  } = useContext(InfoContext);
   const { delivery: deliveryValue, deadline: deadlineValue, payment: paymentValue } = infoValue;
 
   return (

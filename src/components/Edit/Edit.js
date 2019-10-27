@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import AppContext from 'context';
+import AppContext from 'context/AppContext';
 import { blueDark, red } from 'styled/colors';
 import addIcon from 'assets/icons/add.svg';
 import editIcon from 'assets/icons/writing.svg';

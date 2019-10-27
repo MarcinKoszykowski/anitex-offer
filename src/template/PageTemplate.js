@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import AppContext from 'context';
+import AppContext from 'context/AppContext';
 import styled, { css } from 'styled-components';
 import { white, grey } from 'styled/colors';
 import logoImg from 'assets/images/anitex.png';

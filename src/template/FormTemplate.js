@@ -1,5 +1,9 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react';
-import AppContext from 'context';
+import React, { useEffect, useCallback, useContext } from 'react';
+import AppContext from 'context/AppContext';
+import FirmContext from 'context/FirmContext';
+import InfoContext from 'context/InfoContext';
+import FormContext from 'context/FormContext';
+import ProductContext from 'context/ProductContext';
 import styled from 'styled-components';
 import { green } from 'styled/colors';
 import addIcon from 'assets/icons/add.svg';
@@ -30,44 +34,13 @@ const FormButton = styled(Button)`
 function FormTemplate() {
   const {
     firm: { firm1, firm2, address1, address2, nip, phone, email },
+  } = useContext(FirmContext);
+  const {
     info: { deadline, delivery, payment },
-    product,
-    formType,
-    addFirm,
-    addInfo,
-    addProduct,
-    edit,
-    editProductNumber,
-    productEdit,
-    addEditProduct,
-  } = useContext(AppContext);
-
-  const [type, setType] = useState({
-    firm2: false,
-    email: false,
-  });
-
-  const [formFirm, setFormFirm] = useState({
-    firm1: '',
-    firm2: '',
-    address1: '',
-    address2: '',
-    nip: '',
-    phone: '',
-    email: '',
-  });
-
-  const [formInfo, setFormInfo] = useState({
-    delivery: '',
-    deadline: '',
-    payment: '',
-  });
-
-  const [formProduct, setFormProduct] = useState({
-    name: '',
-    price: '',
-    image: '',
-  });
+  } = useContext(InfoContext);
+  const { product, productEdit, editProductNumber } = useContext(ProductContext);
+  const { formType, addFirm, addInfo, addProduct, edit, addEditProduct } = useContext(AppContext);
+  const { type, setType, formFirm, setFormFirm, formInfo, setFormInfo, formProduct, setFormProduct } = useContext(FormContext);
 
   const setEditState = () => {
     if (edit) {
@@ -114,28 +87,12 @@ function FormTemplate() {
     }));
   };
 
-  const handleInputChangeFirm = e => {
+  const handleInputChange = (e, formData, setFunction) => {
     const value = {
-      ...formFirm,
+      ...formData,
       [e.target.name]: e.target.value,
     };
-    setFormFirm(value);
-  };
-
-  const handleInputChangeInfo = e => {
-    const value = {
-      ...formInfo,
-      [e.target.name]: e.target.value,
-    };
-    setFormInfo(value);
-  };
-
-  const handleInputChangeProduct = e => {
-    const value = {
-      ...formProduct,
-      [e.target.name]: e.target.value,
-    };
-    setFormProduct(value);
+    setFunction(value);
   };
 
   const handleEffectFunction = useCallback(setEditState, [edit, productEdit]);
@@ -160,12 +117,12 @@ function FormTemplate() {
     <Form autoComplete="off" onSubmit={e => formOnSubmit(e)}>
       {formType === 'firm' && (
         <>
-          <Checkbox type={type} checkboxOnClick={handleCheckboxOnClick} />
-          <Firm type={type} firm={formFirm} inputFirm={handleInputChangeFirm} />
+          <Checkbox checkboxOnClick={handleCheckboxOnClick} />
+          <Firm firm={formFirm} inputFirm={e => handleInputChange(e, formFirm, setFormFirm)} />
         </>
       )}
-      {formType === 'info' && <Info info={formInfo} inputInfo={handleInputChangeInfo} />}
-      {formType === 'product' && <Product product={formProduct} inputProduct={handleInputChangeProduct} />}
+      {formType === 'info' && <Info info={formInfo} inputInfo={e => handleInputChange(e, formInfo, setFormInfo)} />}
+      {formType === 'product' && <Product product={formProduct} inputProduct={e => handleInputChange(e, formProduct, setFormProduct)} />}
       <FormButton icon={addIcon} buttonColor={green} />
     </Form>
   );

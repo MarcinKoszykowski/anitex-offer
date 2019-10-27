@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
-import AppContext from 'context';
+import AppContext from 'context/AppContext';
+import BarContext from 'context/BarContext';
 import { green } from 'styled/colors';
 import checkIcon from 'assets/icons/check-mark.svg';
 import Login from 'components/Form/organisms/Login';
@@ -25,7 +26,8 @@ const FormButton = styled(Button)`
 `;
 
 function CenterFormTemplate() {
-  const { formType, saveData, checkPassword, loadData, disabledCenterFormButton, setDisabledCenterFormButton } = useContext(AppContext);
+  const { formType, saveData, checkPassword, loadData } = useContext(AppContext);
+  const { disabledCenterFormButton, setDisabledCenterFormButton } = useContext(BarContext);
 
   const [password, setPassword] = useState('');
   const [fileName, setFileName] = useState('');

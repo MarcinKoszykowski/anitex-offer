@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import AppContext from 'context';
+import AppContext from 'context/AppContext';
+import BarContext from 'context/BarContext';
 import { colorWithOpacity, white, grey, red } from 'styled/colors';
 import { centerBarOnAnimation, centerBarOffAnimation } from 'styled/animations';
 import closeIcon from 'assets/icons/close.svg';
@@ -33,7 +34,8 @@ const CloseButton = styled(Button)`
 `;
 
 function CenetrBarTemplate() {
-  const { centerBarIsVisibility, closeCenterBar, centerBarAnimation } = useContext(AppContext);
+  const { closeCenterBar } = useContext(AppContext);
+  const { centerBarIsVisibility, centerBarAnimation } = useContext(BarContext);
 
   return (
     centerBarIsVisibility && (
