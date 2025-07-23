@@ -35,8 +35,8 @@ const form = {
       firm2: 'firma - dodatkowa nazwa',
       address1: 'adres - pierwsza linijka (ulica i numer domu / mieszkania)',
       address2: 'adres - druga linijka (kod pocztowy + miasto)',
-      nip: 'nip (xxx-xxx-xx-xx)',
-      phone: 'numer telefonu (xxxxxxxxx)',
+      nip: 'nip',
+      phone: 'numer telefonu',
       email: 'adres email',
     },
     info: {
@@ -55,8 +55,8 @@ const form = {
     },
   },
   pattern: {
-    nip: '^[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}$',
-    phone: '[0-9]{9}',
+    nip: '^[0-9]{10}$',
+    phone: '[0-9]{9}$',
     price: '^\\d+,[0-9]{2}$',
   },
   button: {
@@ -76,7 +76,7 @@ const anitex = {
   firm2: 'Roman Kowalski',
   address1: 'Nowina 11a',
   address2: '82-310 Elbląg',
-  nip: '578-117-77-98',
+  nip: '5781177798',
   phone: '609541230',
   email: 'fhuanitex@wp.pl',
 };
